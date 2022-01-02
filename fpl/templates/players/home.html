@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 {% if user.is_authenticated %}
-{{user}}
-<a href="{% url 'logout' %}">Logout</a>
-<a href="{% url 'index' team_id %}">Choose Team</a>
-<a href="{% url 'team' team_id %}">See Team</a>
-{% else %}
-<a href="{% url 'login' %}">Login</a>
+    <h2> {{user}} </h2>
 {% endif %}
 {% endblock content %}

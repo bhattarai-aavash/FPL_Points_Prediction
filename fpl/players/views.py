@@ -145,6 +145,7 @@ class IndexView(View):
             # 'team': team,
             'player': player,
             'respond': respond,
+            'team_id': team_id,
         }
         return render(request, 'players/index.html', context)
 

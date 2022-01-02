@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-{{name}}
-<a href="{% url 'home' %}">Home</a>
-{% if user.is_authenticated %}
-<a href="{% url 'index' team_id %}">Choose Team</a>
-{% endif %}
+<h1>{{name}}</h1>
+<br>
 {% for player in players %}
-<p> {{player}}: {{player.points}} </p>
+<p>
+<h3>{{player}}: {{player.points}}</h3>
+</p><br>
 {% endfor %}
-<h3>Total Points: {{total}} </h3>
+<h2 style="padding-left:40%;">Total Points: {{total}} </h2>
 {% endblock content %}
