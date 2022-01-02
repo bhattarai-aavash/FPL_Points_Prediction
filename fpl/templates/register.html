@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 <h3>Create a new account.</h3>
+<br>
+<br>
 <form method="post" action="{% url 'register' %}">
     {% csrf_token %}
-    <h3>Username:</h3><br>
+    <h3>Username:</h3>
     {{form.username}}
-    <h3>Password:</h3><br>
+    <br>
+    <h3>Password:</h3>
     {{form.password}}
+    <br>
     <h3>Email:</h3>
     {{form.email}}
+    <br>
     <h3>Enter the team name:</h3>
     {{form.team}}
+    <br>
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 {% endblock content %}
