@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{name}}</h1>
+<br>
+{% for player in players %}
+<p>
+<h4>{{player}}: {{player.points}}</h4>
+</p><br>
+{% endfor %}
+<h2 style="padding-left:40%;">Total Points: {{total}} </h2>
+{% endblock content %}
