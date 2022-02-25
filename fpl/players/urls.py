@@ -7,4 +7,10 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name="logout"),
     path('register/', views.RegisterView.as_view(), name="register"),
     path('team/<int:team_id>', views.TeamView.as_view(), name='team'),
+    path('status/', views.StatusView.as_view(), name="status"),
+    path('fixtures/', views.FixturesView.as_view(), name="fixtures"),
+    path('pickteam/<int:team_id>', views.PickTeamView.as_view(), name="transfer"),
+    # path('edit/<int:player_id>',
+    #      views.edit, name='edit'),
+    path('league/<int:team_id>', views.LeagueView.as_view(), name='league'),
 ]

@@ -190,3 +190,6 @@ ul li {
   text-decoration: none;
   color: rgb(82, 75, 75);
 }
+.warning {
+  background: red;
+}

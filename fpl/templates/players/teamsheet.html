@@ -1,11 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{name}}</h1>
+<h3>Team Captain: {{captain}} </h3>
+<!-- <h2>{{total_price}}</h2> -->
+<br />
+<h2>Money Remaining:  {{budget}} </h2>
 <br>
-{% for player in players %}
+{% for f in for %}
 <p>
-<h4>{{player}}: {{player.points}}</h4>
+<h4>{{f}}: {{f.points}}</h4>
 </p><br>
 {% endfor %}
+{% for d in def %}
+<p>
+<h4>{{d}}: {{d.points}}</h4>
+</p><br>
+{% endfor %}
+{% for m in mid %}
+<p>
+<h4>{{m}}: {{m.points}}</h4>
+</p><br>
+{% endfor %}
+
+{% for g in gk %}
+<p>
+<h4>{{g}}: {{g.points}}</h4>
+</p><br>
+{% endfor %}
+
+<h3 style="background-color:cornsilk">Extras:</h3>
+<br />
+{% for ff in ex_f %}
+<p>
+<h4 style="padding-left: 5%;">{{ff}}:{{ff.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for mm in ex_m %}
+<p>
+<h4 style="padding-left: 5%;">{{mm}}:{{mm.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for dd in ex_d %}
+<p>
+<h4 style="padding-left: 5%;">{{dd}}:{{dd.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for gg in ex_g %}
+<p>
+<h4 style="padding-left: 5%;">{{gg}}:{{gg.points}}</h4>
+</p><br />
+{% endfor %}
+
 <h2 style="padding-left:40%;">Total Points: {{total}} </h2>
+<h1 class="warning">{{warning}}</h1>
 {% endblock content %}
