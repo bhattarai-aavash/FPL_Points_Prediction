@@ -234,16 +234,16 @@ class IndexView(View):
                 return False
 
         def club_counter(a):
+            counter = []
             for x in a:
                 count = 0
                 for y in a:
                     if x == y:
                         count += 1
+                counter.append(count)
                 # print(count)
                 if count > 3:
                     return False
-                else:
-                    return True
         if f1:
             # ff1 = team.players.filter(type="FWD")[0]
             ff2 = team.players.filter(type="FWD")[1]
@@ -974,7 +974,7 @@ class IndexView(View):
             'ex_m': ex_m,
             'ex_d': ex_d,
             'ex_g': ex_g,
-            'transfer_counter': transfer_count,
+            # 'transfer_counter': transfer_count,
         }
         return render(request, 'players/index.html', context)
 
@@ -1169,182 +1169,186 @@ class TeamView(View):
         total_price = 0
         # team = Team.objects.filter(user__username=n_user)
         team = Team.objects.get(pk=team_id)
-        players = team.players.all()
-        print(len(players))
-        extras = team.subs.all()
-        # print(team.players.filter(type='FWD'))
-        # print(team_id)
-        # print(players)
-        forwards = []
-        defenders = []
-        midfields = []
-        goalkeeps = []
-        extra_f = []
-        extra_d = []
-        extra_m = []
-        extra_g = []
-        for player in players:
-            if player.type == 'FWD':
-                if player.minutes > 0:
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'FWD':
-                            if e.minutes > 0 and (e not in forwards):
-                                print(e)
-                                forwards.append(e)
-                                if player not in extra_f:
-                                    extra_f.append(player)
-                                    print(player)
-                            else:
-                                print(player)
-                                forwards.append(player)
-                                if (e not in extra_f) and (e not in forwards):
-                                    extra_f.append(e)
+        if team.user == request.user:
+            players = team.players.all()
+            print(len(players))
+            extras = team.subs.all()
+            print(len(extras))
+            # print(team.players.filter(type='FWD'))
+            # print(team_id)
+            # print(players)
+            forwards = []
+            defenders = []
+            midfields = []
+            goalkeeps = []
+            extra_f = []
+            extra_d = []
+            extra_m = []
+            extra_g = []
+            for player in players:
+                if player.type == 'FWD':
+                    if player.minutes > 0:
+                        forwards.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'FWD':
+                                if e.minutes > 0 and (e not in forwards):
                                     print(e)
-            if player.type == 'DEF':
-                if player.minutes > 0:
-                    defenders.append(player)
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'DEF':
-                            if e.minutes > 0 and (e not in defenders):
-                                print(e)
-                                defenders.append(e)
-                                if player not in extra_d:
-                                    extra_d.append(player)
+                                    forwards.append(e)
+                                    if player not in extra_f:
+                                        extra_f.append(player)
+                                        print(player)
+                                else:
                                     print(player)
-                            else:
-                                print(player)
-                                defenders.append(player)
-                                if (e not in extra_d) and (e not in defenders):
-                                    extra_d.append(e)
+                                    forwards.append(player)
+                                    if (e not in extra_f) and (e not in forwards):
+                                        extra_f.append(e)
+                                        print(e)
+                if player.type == 'DEF':
+                    if player.minutes > 0:
+                        defenders.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'DEF':
+                                if e.minutes > 0 and (e not in defenders):
                                     print(e)
-                                # if player not in (d.name for d in defenders):
-                                #     print(player)
-                                #     defenders.append(player)
-            if player.type == 'MID':
-                if player.minutes > 0:
-                    midfields.append(player)
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'MID':
-                            if e.minutes > 0 and (e not in midfields):
-                                print(e)
-                                midfields.append(e)
-                                if player not in extra_m:
-                                    extra_m.append(player)
+                                    defenders.append(e)
+                                    if player not in extra_d:
+                                        extra_d.append(player)
+                                        print(player)
+                                else:
                                     print(player)
-                            else:
-                                print(player)
-                                midfields.append(player)
-                                if (e not in extra_m) and (e not in midfields):
-                                    extra_m.append(e)
+                                    defenders.append(player)
+                                    if (e not in extra_d) and (e not in defenders):
+                                        extra_d.append(e)
+                                        print(e)
+                                    # if player not in (d.name for d in defenders):
+                                    #     print(player)
+                                    #     defenders.append(player)
+                if player.type == 'MID':
+                    if player.minutes > 0:
+                        midfields.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'MID':
+                                if e.minutes > 0 and (e not in midfields):
                                     print(e)
-            if player.type == 'GK':
-                if player.minutes > 0:
-                    goalkeeps.append(player)
-                    print(player)
-                    for e in extras:
-                        if e.type == 'GK':
-                            extra_g.append(e)
-                            print(e)
-                else:
-                    for e in extras:
-                        if e.type == 'GK':
-                            if e.minutes > 0 and (e not in goalkeeps):
-                                goalkeeps.append(e)
-                                print(e)
-                                extra_g.append(player)
-                                print(player)
-                            else:
-                                goalkeeps.append(player)
+                                    midfields.append(e)
+                                    if player not in extra_m:
+                                        extra_m.append(player)
+                                        print(player)
+                                else:
+                                    print(player)
+                                    midfields.append(player)
+                                    if (e not in extra_m) and (e not in midfields):
+                                        extra_m.append(e)
+                                        print(e)
+                if player.type == 'GK':
+                    if player.minutes > 0:
+                        goalkeeps.append(player)
+                        print(player)
+                        for e in extras:
+                            if e.type == 'GK':
                                 extra_g.append(e)
-                    # for e in extras:
-                    #     if e.type == 'GK':
-                    #         if e.minutes > 0 and (e not in goalkeeps):
-                    #             print(e)
-                    #             goalkeeps.append(e)
-                    #             if player not in extra_g:
-                    #                 extra_g.append(player)
-                    #         else:
-                    #             print(player)
-                    #             goalkeeps.append(player)
-                    #             if (e not in extra_g) and (e not in goalkeeps):
-                    #                 extra_g.append(e)
-        print(forwards)
-        print(midfields)
-        print(defenders)
-        print(goalkeeps)
-        print(extra_f)
-        print(extra_d)
-        print(extra_m)
-        print(extra_g)
-        for ff in extra_f:
-            print(ff)
-        new_set = []
-        new_set.append(forwards)
-        new_set.append(midfields)
-        new_set.append(defenders)
-        new_set.append(goalkeeps)
-        print(new_set)
-        # for extra in extras:
-        #     if extra.type == 'FWD':
-        #         extra_f.append(extra)
-        #     if extra.type == 'DEF':
-        #         extra_d.append(extra)
-        #     if extra.type == 'MID':
-        #         extra_m.append(extra)
-        #     if extra.type == 'GK':
-        #         extra_g.append(extra)
-        cap = team.captain
-        for player in players:
-            total_price += player.price
-        for extra in extras:
-            total_price += extra.price
-        for n in new_set:
-            for p in n:
-                if p == cap:
-                    total_point += p.points*2
-                else:
-                    total_point += p.points
-        team.week_point = total_point
-        team.save()
-        print(team.week_point)
-        # print(extra_g)
-        # print(forwards)
-        # print(defenders)
-        # print(midfields)
-        # print(goalkeeps)
-        # print(total_point)
-        if cap in players:
+                                print(e)
+                    else:
+                        for e in extras:
+                            if e.type == 'GK':
+                                if e.minutes > 0 and (e not in goalkeeps):
+                                    goalkeeps.append(e)
+                                    print(e)
+                                    extra_g.append(player)
+                                    print(player)
+                                else:
+                                    goalkeeps.append(player)
+                                    extra_g.append(e)
+                        # for e in extras:
+                        #     if e.type == 'GK':
+                        #         if e.minutes > 0 and (e not in goalkeeps):
+                        #             print(e)
+                        #             goalkeeps.append(e)
+                        #             if player not in extra_g:
+                        #                 extra_g.append(player)
+                        #         else:
+                        #             print(player)
+                        #             goalkeeps.append(player)
+                        #             if (e not in extra_g) and (e not in goalkeeps):
+                        #                 extra_g.append(e)
+            print(forwards)
+            print(midfields)
+            print(defenders)
+            print(goalkeeps)
+            print(extra_f)
+            print(extra_d)
+            print(extra_m)
+            print(extra_g)
+            for ff in extra_f:
+                print(ff)
+            new_set = []
+            new_set.append(forwards)
+            new_set.append(midfields)
+            new_set.append(defenders)
+            new_set.append(goalkeeps)
+            print(new_set)
+            # for extra in extras:
+            #     if extra.type == 'FWD':
+            #         extra_f.append(extra)
+            #     if extra.type == 'DEF':
+            #         extra_d.append(extra)
+            #     if extra.type == 'MID':
+            #         extra_m.append(extra)
+            #     if extra.type == 'GK':
+            #         extra_g.append(extra)
             cap = team.captain
-        else:
-            cap = None
-        budget = 100-total_price
-        budget = "{:.2f}".format(budget)
-        names = team
-        context = {
-            # 'players': players,
-            'name': names,
-            'team_id': team_id,
-            'total': total_point,
-            # 'extras': extras,
-            'total_price': total_price,
-            'budget': budget,
-            'for': forwards,
-            'mid': midfields,
-            'def': defenders,
-            'gk': goalkeeps,
-            'ex_f': extra_f,
-            'ex_m': extra_m,
-            'ex_d': extra_d,
-            'ex_g': extra_g,
-            'captain': cap,
-        }
-        return render(request, 'players/teamsheet.html', context)
+            for player in players:
+                total_price += player.price
+            for extra in extras:
+                total_price += extra.price
+            for n in new_set:
+                for p in n:
+                    if p == cap:
+                        total_point += p.points*2
+                    else:
+                        total_point += p.points
+            team.week_point = total_point
+            team.save()
+            print(team.week_point)
+            # print(extra_g)
+            # print(forwards)
+            # print(defenders)
+            # print(midfields)
+            # print(goalkeeps)
+            # print(total_point)
+            if cap in players:
+                cap = team.captain
+            else:
+                cap = None
+            budget = 100-total_price
+            budget = "{:.2f}".format(budget)
+            names = team
+            context = {
+                # 'players': players,
+                'name': names,
+                'team_id': team_id,
+                'total': total_point,
+                # 'extras': extras,
+                'total_price': total_price,
+                'budget': budget,
+                'for': forwards,
+                'mid': midfields,
+                'def': defenders,
+                'gk': goalkeeps,
+                'ex_f': extra_f,
+                'ex_m': extra_m,
+                'ex_d': extra_d,
+                'ex_g': extra_g,
+                'captain': cap,
+            }
+            return render(request, 'players/teamsheet.html', context)
+        return HttpResponseRedirect('/players')
 
 
 class PickTeamView(View):
