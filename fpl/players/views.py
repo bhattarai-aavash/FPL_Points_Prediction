@@ -234,16 +234,17 @@ class IndexView(View):
                 return False
 
         def club_counter(a):
-            counter = []
+            counter = 1
             for x in a:
                 count = 0
                 for y in a:
                     if x == y:
                         count += 1
-                counter.append(count)
-                # print(count)
                 if count > 3:
-                    return False
+                    counter = 0
+            print(counter)
+            return counter
+
         if f1:
             # ff1 = team.players.filter(type="FWD")[0]
             ff2 = team.players.filter(type="FWD")[1]
@@ -878,6 +879,7 @@ class IndexView(View):
             # ex_m = team.subs.filter(type="MID")[0]
             ex_d = team.subs.filter(type="DEF")[0]
             ex_g = team.subs.filter(type="GK")[0]
+            print(ff1)
             total_price = ff1.price+ff2.price+ex_f.price+dd1.price + dd2.price + \
                 dd3.price+dd4.price+ex_d.price + mm1.price + \
                 mm2.price+mm3.price+mm4.price + \
@@ -1090,75 +1092,121 @@ class RegisterView(View):
             list.append(g1)
             list.append(g2)
             total = 0
+
+            def club_counter(a):
+                counter = 1
+                for x in a:
+                    count = 0
+                    for y in a:
+                        if x == y:
+                            count += 1
+                    if count > 3:
+                        counter = 0
+                print(counter)
+                return counter
+
             for l in list:
                 for p in l:
                     total += p.price
             remain = 100-total
+            clubs = [f1[0].club, f2[0].club, f3[0].club, d1[0].club, d2[0].club, d3[0].club, d4[0].club,
+                     d5[0].club, m1[0].club, m2[0].club, m3[0].club, m4[0].club, m5[0].club, g1[0].club, g2[0].club]
             new_user = User(username=username, email=email)
             new_user.set_password(password)
-            if f1 == f2 == f3:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif d1 == d2 == d3 == d4 == d5:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif m1 == m2 == m3 == m4 == m5:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif g1 == g2:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif total > 100:
-                response = "Choose Players within the budget of 100"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
+            if club_counter(clubs):
+                if f1[0] == f2[0] or f1[0] == f3[0] or f2[0] == f3[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif d1[0] == d2[0] or d1[0] == d3[0] or d1[0] == d4[0] or d1[0] == d5[0] or d2[0] == d3[0] or d2[0] == d4[0] or d2[0] == d5[0] or d3[0] == d4[0] or d3[0] == d5[0] or d4[0] == d5[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif m1[0] == m2[0] or m1[0] == m3[0] or m1[0] == m4[0] or m1[0] == m5[0] or m2[0] == m3[0] or m2[0] == m4[0] or m2[0] == m5[0] or m3[0] == m4[0] or m3[0] == m5[0] or m4[0] == m5[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif g1[0] == g2[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif total > 100:
+                    response = "Choose Players within the budget of 100"
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                else:
+                    new_user.save()
+                    team = Team(name=team_name, total_points=0, user=new_user)
+                    team.save()
+
+                    def create_p(pp):
+                        for p in pp:
+                            team.players.add(p)
+
+                    def create_e(ee):
+                        for e in ee:
+                            team.subs.add(e)
+                    create_p(f1)
+                    create_p(f2)
+                    create_p(d1)
+                    create_p(d2)
+                    create_p(d3)
+                    create_p(d4)
+                    create_p(m1)
+                    create_p(m2)
+                    create_p(m3)
+                    create_p(m4)
+                    create_p(g1)
+                    create_e(f3)
+                    create_e(d5)
+                    create_e(m5)
+                    create_e(g2)
+                    return HttpResponseRedirect(reverse('login'))
             else:
-                new_user.save()
-                team = Team(name=team_name, total_points=0, user=new_user)
-                team.save()
-
-                def create_p(pp):
-                    for p in pp:
-                        team.players.add(p)
-
-                def create_e(ee):
-                    for e in ee:
-                        team.subs.add(e)
-                create_p(f1)
-                create_p(f2)
-                create_p(d1)
-                create_p(d2)
-                create_p(d3)
-                create_p(d4)
-                create_p(m1)
-                create_p(m2)
-                create_p(m3)
-                create_p(m4)
-                create_p(g1)
-                create_e(f3)
-                create_e(d5)
-                create_e(m5)
-                create_e(g2)
-            return HttpResponseRedirect(reverse('login'))
+                response = 'You cannot choose players more than 3 from same teams.'
+                form = RegisterForm()
+                player = Players.objects.all()
+                context = {
+                    'form': form,
+                    'player': player,
+                    'response': response,
+                }
+                return render(request, 'register.html', context)
         return HttpResponse("Form not filled properly")
 
 
@@ -1277,6 +1325,23 @@ class TeamView(View):
                         #             goalkeeps.append(player)
                         #             if (e not in extra_g) and (e not in goalkeeps):
                         #                 extra_g.append(e)
+            for e in extras:
+                if e.type == 'FWD':
+                    if (e not in forwards) and (e not in extra_f):
+                        extra_f.append(e)
+                        print(e)
+                if e.type == 'DEF':
+                    if (e not in defenders) and (e not in extra_d):
+                        extra_d.append(e)
+                        print(e)
+                if e.type == 'MID':
+                    if (e not in midfields) and (e not in extra_m):
+                        extra_m.append(e)
+                        print(e)
+                if e.type == 'GK':
+                    if (e not in goalkeeps) and (e not in extra_g):
+                        extra_g.append(e)
+                        print(e)
             print(forwards)
             print(midfields)
             print(defenders)
@@ -1285,8 +1350,7 @@ class TeamView(View):
             print(extra_d)
             print(extra_m)
             print(extra_g)
-            for ff in extra_f:
-                print(ff)
+
             new_set = []
             new_set.append(forwards)
             new_set.append(midfields)
@@ -1399,3 +1463,8 @@ class LeagueView(View):
             'lis': lists,
         }
         return render(request, 'players/leagues.html', context)
+
+
+class HelpView(View):
+    def get(self, request):
+        return render(request, 'players/help.html')
