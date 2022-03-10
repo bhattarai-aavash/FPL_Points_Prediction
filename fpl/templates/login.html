@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="form-container">
+    <div class="login-form">
+        <h1>Login</h1>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+    
+            {{form.username}}
+            {{form.password}}
+    
+            <button type="submit" class="btn login-btn">LOGIN</button>
+        </form>
+        <p>Don't have an account?</p>
+        <h3>
+            <a href="{% url 'register' %}" style="color:var(--bg-accent2)">Create</a> a new account
+        </h3> 
+    </div>
+
+    <img id="side-img" src="{% static 'players/images/lion_logo.png' %}" alt="lion-head">
+</div>
+
+
+
+{% endblock content %}

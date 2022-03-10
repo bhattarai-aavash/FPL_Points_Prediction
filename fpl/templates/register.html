@@ -1,0 +1,187 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+
+<form action="{% url 'register' %}" method="post">
+  <div class="form-container">
+    
+    <div class="choose-team">
+      <h2>{{response}}</h2>
+      
+      <h3>Goalkeeper</h3>
+      
+      <select name="goalkeeper1" id="goalkeeper1">
+        {% for p in player %} {% if p.type == 'GK' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+    
+      <h3>Defenders</h3>
+      
+      <select name="defender1" id="defender1">
+        {% for p in player %} {% if p.type == 'DEF' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+      <select name="defender2" id="defender2">
+        {% for p in player %} {% if p.type == 'DEF' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="defender3" id="defender3">
+        {% for p in player %} {% if p.type == 'DEF' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="defender4" id="defender4">
+        {% for p in player %} {% if p.type == 'DEF' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <h3>Mid-Fielders</h3>
+      
+      <select name="mid-fielder1" id="mid-fielder1">
+        {% for p in player %} {% if p.type == 'MID' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="mid-fielder2" id="mid-fielder2">
+        {% for p in player %} {% if p.type == 'MID' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="mid-fielder3" id="mid-fielder3">
+        {% for p in player %} {% if p.type == 'MID' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="mid-fielder4" id="mid-fielder4">
+        {% for p in player %} {% if p.type == 'MID' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <h3>Forwards</h3>
+      
+      <select name="forward1" id="forward1">
+        {% for p in player %} {% if p.type == 'FWD' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}
+      </select>
+      
+    
+      <select name="forward2" id="forward2">
+        {% for p in player %} {% if p.type == 'FWD' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}}
+      </select>
+      
+      <hr>
+      <h3>Substitutes:</h3>
+      
+      <h3>Goalkeeper:</h3>
+      
+      <select name="extra1" id="extra1">
+        {% for p in player %} {% if p.type == 'GK' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}}
+      </select>
+      
+    
+      <h3>Defender:</h3>
+      
+      <select name="extra2" id="extra2">
+        {% for p in player %} {% if p.type == 'DEF'%}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}}
+      </select>
+      
+    
+      <h3>Mid-Fielder:</h3>
+      
+      <select name="extra3" id="extra3">
+        {% for p in player %} {% if p.type == 'MID' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}}
+      </select>
+      
+    
+      <h3>Forward:</h3>
+      
+      <select name="extra4" id="extra4">
+        {% for p in player %} {% if p.type == 'FWD' %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %} {% endfor %}}
+      </select>
+    
+      <!-- <button type="submit" class="btn register-btn">CREATE</button> -->
+    
+    </div>
+
+    <div class="register-form">
+      <h1>Create a new account</h1>
+      {% csrf_token %}
+    
+      {{form.username}}
+      {{form.password}}
+      {{form.email}}
+      {{form.team}}
+    
+      <button type="submit" class="btn register-btn">CREATE</button>
+    
+    
+    
+    </div>
+
+  </div>
+</form>
+
+
+
+
+{% endblock content %}

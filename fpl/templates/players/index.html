@@ -1,0 +1,271 @@
+{% extends 'base.html' %} {% block content %}
+<h2>{{team.name}}</h2>
+<br />
+<h1>{{respond}}</h1>
+<br />
+{% if user.is_authenticated %}
+<h2>Manager Name: {{user}}</h2>
+<br />
+{% endif %}
+<br />
+<h4>Transfer Counter : {{team.transfer_counter}}</h4>
+<br>
+  <h3>Goalkeeper</h3>
+  <br />
+  <form method="post">
+    {% csrf_token %}
+    <select name="goalkeeper1" id="goalkeeper1">
+      <option value="{{gg1.name}}">
+        {{gg1.name}}----{{gg1.type}}---{{gg1.club}}---${{gg1.price}}
+      </option>
+      {% for p in player %}
+      {% if gg1.type == 'GK' and p.type == 'GK' and gg1.name != p.name %}
+      <option value="{{p.name}}">
+        {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+      </option>
+      {% endif %}
+      {% endfor %}
+    </select>
+    <input type="submit" value="submit" /><br /><br />
+  </form>
+    <h3>Defenders</h3>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="defender1" id="defender1">
+        <option value="{{dd1.name}}">
+          {{dd1.name}}----{{dd1.type}}---{{dd1.club}}---${{dd1.price}}
+        </option>
+        {% for p in player %}
+        {% if dd1.type == 'DEF' and p.type == 'DEF' and dd1.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="defender2" id="defender2">
+        <option value="{{dd2.name}}">
+          {{dd2.name}}----{{dd2.type}}---{{dd2.club}}---${{dd2.price}}
+        </option>
+        {% for p in player %}
+        {% if dd2.type == 'DEF' and p.type == 'DEF' and dd2.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="defender3" id="defender3">
+        <option value="{{dd3.name}}">
+          {{dd3.name}}----{{dd3.type}}---{{dd3.club}}---${{dd3.price}}
+        </option>
+        {% for p in player %}
+        {% if dd3.type == 'DEF' and p.type == 'DEF' and dd3.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="defender4" id="defender4">
+        <option value="{{dd1.name}}">
+          {{dd4.name}}----{{dd4.type}}---{{dd4.club}}---${{dd4.price}}
+        </option>
+        {% for p in player %}
+        {% if dd4.type == 'DEF' and p.type == 'DEF' and dd4.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h3>Mid-Fielders</h3>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="mid-fielder1" id="mid-fielder1">
+        <option value="{{mm1.name}}">
+          {{mm1.name}}----{{mm1.type}}---{{mm1.club}}---${{mm1.price}}
+        </option>
+        {% for p in player %}
+        {% if mm1.type == 'MID' and p.type == 'MID' and mm1.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="mid-fielder2" id="mid-fielder2">
+        <option value="{{mm2.name}}">
+          {{mm2.name}}----{{mm2.type}}---{{mm2.club}}---${{mm2.price}}
+        </option>
+        {% for p in player %}
+        {% if mm2.type == 'MID' and p.type == 'MID' and mm2.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="mid-fielder3" id="mid-fielder3">
+        <option value="{{mm1.name}}">
+          {{mm3.name}}----{{mm3.type}}---{{mm3.club}}---${{mm3.price}}
+        </option>
+        {% for p in player %}
+        {% if mm3.type == 'MID' and p.type == 'MID' and mm3.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="mid-fielder4" id="mid-fielder4">
+        <option value="{{mm1.name}}">
+          {{mm4.name}}----{{mm4.type}}---{{mm4.club}}---${{mm4.price}}
+        </option>
+        {% for p in player %}
+        {% if mm4.type == 'MID' and p.type == 'MID' and mm4.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h3>Forwards</h3>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="forward1" id="forward1">
+        <option value="{{ff1.name}}">
+          {{ff1.name}}----{{ff1.type}}---{{ff1.club}}---${{ff1.price}}
+        </option>
+        {% for p in player %}
+        {% if ff1.type == 'FWD' and p.type == 'FWD' and ff1.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <form method="post">
+      {% csrf_token %}
+      <select name="forward2" id="forward2">
+        <option value="{{ff2.name}}">
+          {{ff2.name}}----{{ff2.type}}---{{ff2.club}}---${{ff2.price}}
+        </option>
+        {% for p in player %}
+        {% if ff2.type == 'FWD' and p.type == 'FWD' and ff2.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h2>Substitutes:</h2>
+    <br />
+    <h4>Goalkeeper:</h4>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="extra1" id="extra1">
+        <option value="{{ex_g.name}}">
+          {{ex_g.name}}----{{ex_g.type}}---{{ex_g.club}}---${{ex_g.price}}
+        </option>
+        {% for p in player %}
+        {% if ex_g.type == 'GK' and p.type == 'GK' and ex_g.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h4>Defender:</h4>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="extra2" id="extra2">
+        <option value="{{ex_d.name}}">
+          {{ex_d.name}}----{{ex_d.type}}---{{ex_d.club}}---${{ex_d.price}}
+        </option>
+        {% for p in player %}
+        {% if ex_d.type == 'DEF' and p.type == 'DEF' and ex_d.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h4>Mid-Fielder:</h4>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="extra3" id="extra3">
+        <option value="{{ex_m.name}}">
+          {{ex_m.name}}----{{ex_m.type}}---{{ex_m.club}}---${{ex_m.price}}
+        </option>
+        {% for p in player %}
+        {% if ex_m.type == 'MID' and p.type == 'MID' and ex_m.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+    <h4>Forward:</h4>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      <select name="extra4" id="extra4">
+        <option value="{{ex_f.name}}">
+          {{ex_f.name}}----{{ex_f.type}}---{{ex_f.club}}---${{ex_f.price}}
+        </option>
+        {% for p in player %}
+        {% if ex_f.type == 'FWD' and p.type == 'FWD' and ex_f.name != p.name %}
+        <option value="{{p.name}}">
+          {{p.name}}----{{p.type}}----{{p.club}}--${{p.price}}
+        </option>
+        {% endif %}
+        {% endfor %}}
+      </select>
+      <input type="submit" value="submit" /><br /><br />
+    </form>
+{% endblock content %}

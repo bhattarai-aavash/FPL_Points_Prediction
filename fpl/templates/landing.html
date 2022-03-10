@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'players/css/landing.css' %}">
+    <script src="https://kit.fontawesome.com/3542668ab7.js" crossorigin="anonymous"></script>
+
+    <!-- javascript  -->
+    <!-- <script src="{% static 'players/js/script.js' %}" defer></script> -->
+</head>
+
+<body>
+    <section class="product" id="#">
+        <nav class="top">
+            <div class="logo">
+                Fantasy Premier League
+            </div>
+            <ul>
+                <li><a href="">Help</a></li>
+                <li><a href="{% url 'login' %}">Sign In</a> </li>
+            </ul>
+        </nav>
+
+        <div class="info">
+            <div class="enjoy">
+                <h2>Enjoy </h2>
+                <h2>Premier League</h2>
+                <h2>Football In A</h2>
+                <h2>More Exciting Way</h2>
+            </div>
+
+            <div class="manage">
+                <p>Become a manager</p>
+                <p>Create your own team</p>
+            </div>
+            <a href="#explore" class="goto explore-btn">
+                Explore
+            </a>
+            <a href="{% url 'login' %}" class="signInBtn">
+                Sign In
+            </a>
+        </div>
+    </section>
+    <section class="inside" id="explore">
+        <div class="platform">
+            Using our platform will improve your Fantasy Premier League performance
+        </div>
+        <div class="pick-team">
+            <div class="display">
+                <img src="{% static 'players/images/pickTeam.png' %}" alt="pick team">
+            </div>
+            <div class="pick">
+                <h2>Create Your Own Squad</h2>
+                <p>Use our budget of &pound;100m to create a squad of 15 players from the Premier League and strive to
+                    become a top manager. </p>
+            </div>
+        </div>
+        <div class="optimise-team">
+            <div class="display">
+                <img src="{% static 'players/images/transfers.png' %}" alt="transfers">
+            </div>
+            <div class="optimise">
+                <h2>Optimise Your Squad</h2>
+                <p>Use our points predictor feature to analyse your FPL squad and maximise your overall team points.
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer class="bottom">
+        <div>
+            &copy; PREMIER LEAGUE 2021/22
+            <div class="AAA">powered by <span>AAA</span></div>
+        </div>
+        <a href="#">Back to top</a>
+    </footer>
+</body>
+
+</html>
