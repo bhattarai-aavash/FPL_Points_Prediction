@@ -161,13 +161,14 @@
                         <li><a href="{% url 'fixtures'%}" class="nav-link">Fixtures</a></li>
                         <li><a href="#" class="nav-link">Stats</a></li>
                         <li><a href="#" class="nav-link">Prizes</a></li>
-                        <li><a href="#" class="nav-link">Help</a></li>
                         {% if user.is_authenticated %}
+                        <li><a href="{% url 'help' team_id %}" class="nav-link">Help</a></li>
                         <li><a href="{% url 'team' team_id %}" class="nav-link">Points</a></li>
                         <li><a href="{% url 'index' team_id %}" class="nav-link">Transfers</a></li>
-                        <li><a href="{% url 'transfer' team_id %}" class="nav-link">Pick Team</a></li>
-                        <li><a href="{% url 'league' team_id %}" class="nav-link">Predictor</a></li>
-                        <li><a href="{% url 'league' team_id %}" class="nav-link">Leagues</a></li>               
+                        <li><a href="{% url 'transfer' team_id %}" class="nav-link">Pick Captain</a></li>
+                        <li><a href="#" class="nav-link">Predictor</a></li>
+                        <li><a href="{% url 'league' team_id %}" class="nav-link">Leagues</a></li>    
+                        <li><a href="{% url 'dreamteam' team_id %}" class="nav-link">Dream Team</a></li>            
                         <li><a href="{% url 'logout' %}" class="nav-link">Sign Out</a></li>
                         {% else %}
                         <li><a href="{% url 'login' %}" class="nav-link">Sign In</a></li>

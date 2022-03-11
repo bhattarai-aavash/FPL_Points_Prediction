@@ -1,4 +1,5 @@
 from multiprocessing import context
+from unittest.case import DIFF_OMITTED
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Players, Team
@@ -8,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+import pandas as pd
 # import requests
 # import csv
 # import pandas as pd
@@ -1466,5 +1468,67 @@ class LeagueView(View):
 
 
 class HelpView(View):
-    def get(self, request):
-        return render(request, 'players/help.html')
+    def get(self, request, team_id):
+        context = {
+            'team_id': team_id,
+        }
+        return render(request, 'players/help.html', context)
+
+
+class DreamTeamView(View):
+    def get(self, request, team_id):
+        df = pd.read_csv(
+            'https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2021-22/gws/gw25.csv')
+        GK_filt = df['position'] == 'GK'
+        mid_filt = df['position'] == 'MID'
+        def_filt = df['position'] == 'DEF'
+        fwd_filt = df['position'] == 'FWD'
+        df_GK = df.loc[GK_filt, ['position', 'name', 'total_points']]
+        df_mid = df.loc[mid_filt, ['position', 'name', 'total_points']]
+        df_def = df.loc[def_filt, ['position', 'name', 'total_points']]
+        df_fwd = df.loc[fwd_filt, ['position', 'name', 'total_points']]
+        df_mid.sort_values(by=['total_points'], inplace=True, ascending=False)
+
+        df_fwd.sort_values(by=['total_points'], inplace=True, ascending=False)
+        df_def.sort_values(by=['total_points'], inplace=True, ascending=False)
+        keeper = df_GK.loc[df_GK['total_points'].idxmax()]
+        print(keeper)
+        print(df_fwd)
+        forward = df_fwd[0:4].name.tolist()
+        midfield = df_mid[0:5].name.tolist()
+        defender = df_def[0:5].name.tolist()
+        print(forward)
+        # for 433
+        context = {
+            'team_id': team_id,
+            'keeper': keeper,
+            'fwd': forward,
+            'def': defender,
+            'mid': midfield,
+        }
+        return render(request, 'players/dreamteam.html', context)
+        # goalkeeper = []
+        # forward = []
+        # defender = []
+        # mid = []
+        # formation('fft')
+
+        # def formation(x):
+        #     if x == 'fft':
+        #         # goalkeeper.append(keeper)
+        #         # forward.append(df_fwd.head(3))
+        #         # defender.append(df_def.head(4))
+        #         # mid.append(df_mid.head(4))
+        #         goalkeeper = keeper
+        #         forward = df_fwd.head(3)
+        #         defender = df_def.head(4)
+        #         midfield = df_mid.head(4)
+        #         context = {
+        #             'team_id': team_id,
+        #             'fwd': df_fwd,
+        #             'goalkeeper': goalkeeper,
+        #             'forward': forward,
+        #             'midfield': midfield,
+        #             'defender': defender,
+        #         }
+        #         return render(request, 'players/dreamteam.html', context)

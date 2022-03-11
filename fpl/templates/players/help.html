@@ -1,0 +1,770 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="wrapper">
+  <div class="help-layout">
+    <div>
+      <h2 class="help-title">Help</h2>
+    </div>
+    <div class="faq">
+      <div class="questions">
+        <h3 class="sub-headings">How Can We Help?</h3>
+
+        <h4>Your premierleague.com account</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>I can't sign in. What do I need to do?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Please ensure you are using your registered e-mail address and
+                correct password. Note that the password is case sensitive.
+              </p>
+              <p>
+                If you've registered for the first time this season, you will
+                need to activate your account before entering a Fantasy Premier
+                League team. An email will be sent to the email address you've
+                registered with and contains a link you'll need to click in
+                order to activate your account. If you haven't received an
+                email, please check your spam or junk mail folders.
+              </p>
+              <!-- <p>
+                                    Try
+                                    <a href="https://users.premierleague.com/accounts/password-reset/">resetting your
+                                        password</a>. A temporary password will be sent to your mailbox. Please update your
+                                    password once logged in.
+                                </p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >I have set up a team, but I can't see my History or renew my
+                leagues from previous seasons. Can you link my new account to my
+                old one?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Unfortunately, we cannot link your history from an old account
+                to a new one. If you have set up a team for this season using a
+                different email address, you will not be able to view your
+                History from previous seasons on that account.
+              </p>
+              <p>
+                In order to see previous seasons' scores, you will need to sign
+                in on the homepage using the registered email address and
+                password combination from the previous seasons and set up a team
+                using that account.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Choosing your initial squad</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I have more than one team?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                In the interest of fair play each person may only enter one
+                team. You may enter this team in multiple leagues and compete
+                against different groups of friends.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >Can I make changes to my squad after entering the game?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Yes, unlimited free transfers can be made before the next
+                deadline.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Is there a print-friendly list of players I can view?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                We have a
+                <a href="/player-list">full player list</a>
+                you can view and print.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Managing your team</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>What formation can I play in?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                You can play in any formation, providing 1 goalkeeper, at least
+                3 defenders and at least 1 forward are selected at all times.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>How do I change my captain?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                On the My Team page, use the menu which appears when clicking on
+                a player.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >How do I change my team name, my team kit or the team I
+                support?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>You can change this information on the team details page.</p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I make changes to my team during a Gameweek?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Any changes you make (starting 11, transfers, captain changes,
+                substitution priorities) after the Gameweek deadline, will not
+                take effect until the following deadline.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Offensive names</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>How do I report an inappropriate or offensive name?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                When registering a team or league within FPL, all managers are
+                asked to think carefully before entering a name. Namesthat are
+                deemed inappropriate or offensive may result in a team and/or
+                league being deleted (see Terms & Conditions).If you spot a name
+                you find inappropriate or offensive then please let us know by
+                reporting the manager name and theteam or league name using the
+                form below. Your details will not be shared with anyone. We will
+                look into the report andtake immediate and appropriate action.
+                It's important to us that Fantasy Premier League is an inclusive
+                space whereeveryone feels welcome and safe. Thank you for your
+                help.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Chips</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>How often can each chip be used?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                The Bench Boost and Triple Captain chips can each be used once a
+                season and are played when saving your team on the my team page.
+                They can be cancelled at anytime before the Gameweek deadline.
+              </p>
+              <p>
+                The Free Hit chip can be used twice during the 2021/22 season,
+                with the second Free Hit available to managers from Gameweek 20.
+                Managers who haven't played their Free Hit ahead of Gameweek 20
+                will not lose their first, they will have two Free Hit chips
+                available to them.
+              </p>
+              <p>
+                The Free Hit chip is played when confirming your transfers and
+                can't be cancelled after confirmed. You can't play the Free Hit
+                chip in consecutive Gameweeks.
+              </p>
+              <p>
+                The Wildcard chip can be used twice a season, once in the first
+                half of the season and once in the second half of the season.
+                The Wildcard chip is played when confirming transfers that cost
+                points and can't be cancelled once played.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I use more than one chip in the same Gameweek?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                No, only one chip may be active in a Gameweek. For example, it
+                is not possible to make transfers with your Wildcard chip and
+                then use your Bench Boost chip in the same Gameweek.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >What happens to my Triple Captain chip if my captain doesn't
+                play?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                The triple points bonus will be passed to your vice-captain. If
+                your vice-captain doesn't play either then the bonus is lost,
+                the chip isn't returned.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>How do price changes affect the Free Hit chip?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                After playing your Free Hit chip, at the next deadline your bank
+                balance and squad is restored to as they were at the previous
+                deadline, with any player price changes in the previous gameweek
+                reflected.
+              </p>
+              <p>
+                Any change to your bank balance whilst the Free Hit chip was
+                active will be lost.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Transfers</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >If I don’t use my free transfer, do I get two the next
+                Gameweek?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                If you do not use your free transfer, you are able to make an
+                additional free transfer the following Gameweek. If you do not
+                use this saved free transfer in the following Gameweek, it will
+                be carried over until you do. You can never have more than 1
+                saved transfer.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I cancel my transfers?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                No. Once you have confirmed your transfers, they are final and
+                can’t be reversed under any circumstances.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >I'm only receiving the amount I paid for a player, not their
+                current price minus sell-on fee.</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Prices shown on the transfer page are players' selling prices
+                minus any sell-on fee. To check the price you paid for a player,
+                please use the list view on the transfers page.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Transfers don’t seem to be costing me points.</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Transfer points are deducted at the start of the next Gameweek.
+              </p>
+              <p>
+                Transfers are free of charge before the start of the season. If
+                you join the game after the start of the season, transfers are
+                free until your first deadline.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Wildcards</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>What is a wildcard?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                A wildcard allows you to make unlimited free transfers
+                throughout a Gameweek. Playing a wildcard will remove any points
+                deductions from transfers already made in the same Gameweek.
+              </p>
+              <p>
+                You play a wildcard when you want to make multiple changes to
+                your team, for example Gameweeks when teams are playing more
+                than once, or when your team is underperforming or has a lot of
+                injuries.
+              </p>
+              <p>
+                When using a wildcard, you must remain within your current
+                budget. There is no unlimited budget when using a wildcard.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>When can I play a wildcard?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                The Wildcard chip can be used twice a season, once in the first
+                half of the season (before Tue 28 Dec 19:15) and once in the
+                second half of the season.
+              </p>
+              <p>
+                Wildcards are played on the transfers page but aren't active
+                until you have confirmed the transfers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >What happens to my saved transfer when I use my wildcard?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                When playing a wildcard, any saved free transfers will be lost.
+                You will be back to the usual 1 free transfer the following
+                Gameweek.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I cancel my wildcard?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Transfer points are deducted at the start of the next Gameweek.
+              </p>
+              <p>
+                No. Once you have confirmed your wildcard it is final and can't
+                be reversed under any circumstances.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>Can I cancel my wildcard?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Do all transfers have to be made at the same time when using my
+                wildcard?
+              </p>
+              <p>
+                No. Once you have played your wildcard, any transfers you make
+                within that Gameweek are free, including any you made before
+                playing your wildcard, up until the next deadline.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Gameweeks where teams play no fixtures or play more than once</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >What happens when a team is playing twice in one
+                Gameweek?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Any players you have from the team playing twice will earn two
+                sets of points, assuming that the player plays in both fixtures.
+              </p>
+              <p>
+                Any team captains playing in two fixtures will also earn double
+                points for each match he plays in.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >One of my players was scheduled to play twice in one Gameweek,
+                but only played in one match. Why wasn't he substituted in the
+                match he didn't play?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                If a player plays any minutes in any scheduled matches in a
+                Gameweek, then he does not qualify for an automatic
+                substitution.
+              </p>
+              <p>
+                The same rule applies to captains. If your captain only plays in
+                one of the two matches, he will not be replaced as captain in
+                the match he doesn’t play.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >What happens if a team does not have a fixture in a
+                Gameweek?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Any players you have from that team will score 0 for that
+                Gameweek. Players will play twice in a future Gameweek, when the
+                match is rescheduled.
+              </p>
+              <p>
+                Points are only awarded to teams who have players selected in
+                their team in the Gameweek the fixture is actually played,
+                irrespective of if you had them selected for the original
+                fixture.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Bonus points</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>How are bonus points calculated?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                The three best performing players in each match according to the
+                help rules Bonus Points System (BPS) will receive additional
+                bonus points. 3 points will be awarded to the highest scoring
+                player, 2 to the second best and 1 to the third.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>When are bonus points added?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Bonus points will be awarded one hour after the final whistle of
+                the last match of any given day.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >My player's BPS has changed since the end of his match.
+                Why?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Some BPS statistics are received after the end of the match so
+                players may rise / fall up to an hour after the end of the days
+                matches.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Automatic substitutions</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >Why haven't my players been automatically substituted
+                yet?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Substitutions happen at the end of the Gameweek, when all
+                matches have been played. You can check the list of fixtures to
+                determine when this is.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>I think my automatic substitutions are wrong.</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                Your team must have 1 goalkeeper, at least 3 defenders and at
+                least 1 forward selected at all times.
+              </p>
+              <p>
+                If your starting team has 3 defenders, and one of them played 0
+                minutes, he can only be replaced by another defender who played.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Premier League transfers</h4>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >What happens if a player is transferred to another Premier
+                League team?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                If a player is transferred to another team in the Premier
+                League, and this transfer takes you over the
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span>When will new players be added?</span>
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                New players will be added within 7 days of their transfer being
+                completed.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="collapsible">
+          <h5>
+            <button type="button">
+              <div><i class="fas fa-chevron-down"></i></div>
+              <span
+                >My player has left the Premier League. What do I do now?</span
+              >
+            </button>
+          </h5>
+          <div class="collapsible-ans">
+            <div class="answers">
+              <p>
+                You can leave the player in your squad, where he will continue
+                to earn 0 points. To remove him permanently, you must use a
+                transfer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <section class="contact-us">
+          <h3>Contact Us</h3>
+          <p>
+            If your question isn't answered above or in the rules then you can
+            contact us using the form below. We aim to reply to all queries
+            within two working days.
+          </p>
+
+          <div class="contact-form">
+            <form action="">
+              <label for="name">Your name:</label>
+              <input type="text" name="name" id="name" placeholder="username" />
+
+              <label for="email">Your email:</label>
+              <input type="email" name="email" id="email" placeholder="email" />
+
+              <label for="subject">Subject:</label>
+              <input type="text" name="subject" id="subject" />
+
+              <label for="message">Your message:</label>
+              <textarea name="message" id="message"></textarea>
+
+              <button type="submit" class="btn send-msg-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
