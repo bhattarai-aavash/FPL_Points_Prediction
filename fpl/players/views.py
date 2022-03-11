@@ -1016,7 +1016,7 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(reverse('status'))
             else:
                 return HttpResponse('User not found.Recheck or create a new account')
         return HttpResponse("Invalid, Login Again!!")
@@ -1380,6 +1380,7 @@ class TeamView(View):
                     else:
                         total_point += p.points
             team.week_point = total_point
+            team.squad_value = total_price
             team.save()
             print(team.week_point)
             # print(extra_g)

@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+<!-- {% comment %} {% extends 'base.html' %} {% block content %}
 <style>
   table,
   th,
@@ -21,4 +22,38 @@
   </tr>
   {% endfor %}
 </table>
+{% endblock content %} {% endcomment %}-->
+
+<div class="wrapper">
+  <h1 class="leagues-title">Leagues</h1>
+  <div class="leagues">
+    <table class="leagues-table">
+      <thead class="league-head">
+        <tr>
+          <th>Rank</th>
+          <th>Team Name</th>
+          <th>Manager Name</th>
+          <th>Points</th>
+          <th>Squad Value</th>
+          <th>Transfers</th>
+        </tr>
+      </thead>
+
+      <tbody class="league-body">
+        {% for l in lis %}
+        <tr>
+          <td>{{forloop.counter}}.</td>
+          <td>{{l.name}}</td>
+          <td>{{l.user}}</td>
+          <td>{{l.total_points}}</td>
+          <td> {{l.squad_value}} </td>
+          <!-- <td> put total team price </td> -->
+          <!-- <td> transfer made(1, 2) --- or transfer cost(-4, -8)</td> -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 {% endblock content %}

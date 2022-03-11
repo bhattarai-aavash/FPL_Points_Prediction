@@ -1,4 +1,8 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% comment %} {% extends "base.html" %}
 {% block content %}
 <h1>{{name}}</h1>
 <h3>Team Captain: {{captain}} </h3>
@@ -56,4 +60,581 @@
 
 <h2 style="padding-left:40%;">Total Points: {{total}} </h2>
 <h1 class="warning">{{warning}}</h1>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+<!-- ------------------POINTS PAGE---------------- -->
+
+<!-- <h1>{{name}}</h1> -->
+<!-- <h3>Team Captain: {{captain}} </h3> -->
+<!-- <h2>{{total_price}}</h2> -->
+<!-- <br />
+<h2>Money Remaining:  {{budget}} </h2>
+<br>
+{% for f in for %}
+<p>
+<h4>{{f}}: {{f.points}}</h4>
+</p><br>
+{% endfor %}
+{% for d in def %}
+<p>
+<h4>{{d}}: {{d.points}}</h4>
+</p><br>
+{% endfor %}
+{% for m in mid %}
+<p>
+<h4>{{m}}: {{m.points}}</h4>
+</p><br>
+{% endfor %}
+
+{% for g in gk %}
+<p>
+<h4>{{g}}: {{g.points}}</h4>
+</p><br>
+{% endfor %}
+
+<h3 style="background-color:cornsilk">Extras:</h3>
+<br />
+{% for ff in ex_f %}
+<p>
+<h4 style="padding-left: 5%;">{{ff}}:{{ff.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for mm in ex_m %}
+<p>
+<h4 style="padding-left: 5%;">{{mm}}:{{mm.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for dd in ex_d %}
+<p>
+<h4 style="padding-left: 5%;">{{dd}}:{{dd.points}}</h4>
+</p><br />
+{% endfor %}
+
+{% for gg in ex_g %}
+<p>
+<h4 style="padding-left: 5%;">{{gg}}:{{gg.points}}</h4>
+</p><br />
+{% endfor %}
+
+<h2 style="padding-left:40%;">Total Points: {{total}} </h2>
+<h1 class="warning">{{warning}}</h1>  -->
+
+
+
+
+
+<!-- --------------------------------------------------- -->
+
+
+
+
+<div class="wrapper">
+
+    <div class="teams-wrapper">
+
+        <!-- ----------STATIC LOOK----------- -->
+
+
+        <div class="left-side-view">
+            <section class="my-team-layout">
+                <h1>Points - {{name}}</h1>
+
+                <section class="points-heading">
+                    <!-- <div class="prev-next">
+                        <button class="btn prev-btn">
+                            Previous
+                        </button>
+                    
+                        <div>
+                            Gameweek 
+                            <span class="current-gameweek">24</span>
+                        </div>
+                    
+                        <button class="btn next-btn">
+                            Next
+                        </button>
+                    </div> -->
+
+                    <div class="team-inform">
+                        <h3>
+                            Team Captain: <span class="capt-band">C</span>{{captain}} 
+                        </h3>
+                        <!-- <h2>{{total_price}}</h2> -->
+                        
+                        <h3>Money Remaining: &pound;{{budget}}m </h3>
+                        
+                    </div>
+
+                    <!-- <div class="points-info">
+                        <div class="latest-points points-card">
+                            <p>Total Points</p>
+                            <div id="points">25</div>
+                        </div>
+                        <div class="avg-high points-card">
+                            <div class="avg">
+                                <small>Average Pts</small> <span id="avgPts">30</span>
+                            </div>
+                            <div class="high">
+                                <small>Highest Pts</small><span id="highPts">100</span>
+                            </div>
+                        </div>
+                        <div class="gw-info points-card">
+                            <div class="gw-rank">
+                                <small>GW Rank</small> <span>2,22,222</span>
+                            </div>
+                            <div class="gw-transfer">
+                                <small>Transfers</small> <span id="transfers-no">0</span>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </section>
+
+                <div class="pitch">
+                    <div class="goalkeeper">
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    goalkeeper tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Lloris</div>
+                            <div class="player-points">0</div>
+                        </div>
+                    </div>
+
+                    <div class="defenders">
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    defender tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Burn</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    defender tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Maguire</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    defender tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Aaron</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    defender tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Alonso</div>
+                            <div class="player-points">0</div>
+                        </div>
+                    </div>
+
+                    <div class="midfielders">
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    midfielder tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Maddison</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    midfielder tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Zaha</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    midfielder tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Jota</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    midfielder tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Son</div>
+                            <div class="player-points">0</div>
+                        </div>
+                    </div>
+
+                    <div class="forwards">
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    forward tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Kane</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    forward tshirt picture
+                                </div>
+                                <div class="band show-band">C</div>
+                            </div>
+                            <div class="player-name">Ronaldo</div>
+                            <div class="player-points">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="substitutes">
+                    <div class="subs">
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    substitue tshirt picture
+                                </div>
+                            </div>
+                            <div class="player-name">Foster</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    substitue tshirt picture
+                                </div>
+                            </div>
+                            <div class="player-name">Digne</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    substitue tshirt picture
+                                </div>
+                            </div>
+                            <div class="player-name">King</div>
+                            <div class="player-points">0</div>
+                        </div>
+                        <div class="player-box">
+                            <div class="tshirt">
+                                <div class="jersey">
+                                    substitue tshirt picture
+                                </div>
+                            </div>
+                            <div class="player-name">Pukki</div>
+                            <div class="player-points">0</div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="fixtures current-fixtures">
+                <div class="heading">
+                    <img src="{% static 'players/images/lion_logo.png' %}" alt="logo" height="80px" width="100px">
+                    <h1>Live Fixtures</h1>
+                </div>
+
+                <!-- <div class="prev-next">
+                    <button class="btn prev-btn">
+                        Previous
+                    </button>
+
+                    <div>
+                        Gameweek
+                        <span class="next-time">24 - Wed 18 Feb 00:00</span>
+                    </div>
+
+                    <button class="btn next-btn">
+                        Next
+                    </button>
+                </div> -->
+
+                <!-- <p style="text-align:center;">All times are shown in your local time.</p> -->
+
+                <div class="match-week-fixture-sm">
+                    <div class="gameweek">
+                        Gameweek <span class="next-gw-no">1</span>
+                    </div>
+
+                    <div class="match-week-info">
+                        <div class="match-datetime">
+                            Friday 20 February
+                        </div>
+                        <div class="match-card-container-sm">
+                            <div class="match-card-sm">
+                                <div class="teams">
+                                    <div class="team-1">
+                                        <div class="logo">
+                                            <img src="{% static 'players/images/logos/manchester-united-fc-logo.png' %}"
+                                                alt="">
+                                        </div>
+                                        <div class="team-name">
+                                            Manchester United
+                                        </div>
+                                    </div>
+                                    <div class="team-2">
+                                        <div class="logo">
+                                            <img src="{% static 'players/images/logos/newcastle-united-fc-logo.png' %}"
+                                                alt="">
+                                        </div>
+                                        <div class="team-name">
+                                            New Castle
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="time-score score">
+                                    <div class="score-1">2</div>
+                                    <div class="score-2">1</div>
+                                </div>
+
+                            </div>
+                            <div class="match-card-sm">
+                                <div class="teams">
+                                    <div class="team-1">
+                                        <div class="logo">M</div>
+                                        <div class="team-name">
+                                            Manchester City
+                                        </div>
+                                    </div>
+                                    <div class="team-2">
+                                        <div class="logo">N</div>
+                                        <div class="team-name">
+                                            Burnley
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="time-score score">
+                                    <div class="score-1">5</div>
+                                    <div class="score-2">0</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match-week-info">
+                        <div class="match-datetime">
+                            Friday 20 February
+                        </div>
+                        <div class="match-card-container-sm">
+                            <div class="match-card-sm">
+                                <div class="teams">
+                                    <div class="team-1">
+                                        <div class="logo">M</div>
+                                        <div class="team-name">
+                                            Watford
+                                        </div>
+                                    </div>
+                                    <div class="team-2">
+                                        <div class="logo">N</div>
+                                        <div class="team-name">
+                                            Norwich
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="time-score score">
+                                    <div class="score-1">1</div>
+                                    <div class="score-2">1</div>
+                                </div>
+
+                            </div>
+                            <div class="match-card-sm">
+                                <div class="teams">
+                                    <div class="team-1">
+                                        <div class="logo">M</div>
+                                        <div class="team-name">
+                                            Manchester City
+                                        </div>
+                                    </div>
+                                    <div class="team-2">
+                                        <div class="logo">N</div>
+                                        <div class="team-name">
+                                            Burnley
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="time-score score">
+                                    <div class="score-1">2</div>
+                                    <div class="score-2">3</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- ----------Right Side------------- -->
+        <div class="right-side-view">
+            <h3>{{name}}</h3>
+
+            <div class="info-card">
+                <h3>Points List View</h3>
+                <ul id="team-points">
+                    <!-- {% for player in players %}
+                    <li class="info-card-item">
+                        <div class="player">{{player}}</div>
+                        <span class="point">{{player.points}}</span>
+                    </li>
+                    {% endfor %} -->
+
+                    {% for f in for %}
+                    <li class="info-card-item">
+                        <div class="player">{{f}}</div>
+                        <span class="point">{{f.points}}</span>
+                    </li>
+                    {% endfor %}
+
+                    {% for d in def %}
+                    <li class="info-card-item">
+                        <div class="player">{{d}}</div>
+                        <span class="point">{{d.points}}</span>
+                    </li>
+                    {% endfor %}
+
+                    {% for m in mid %}
+                    <li class="info-card-item">
+                        <div class="player">{{m}}</div>
+                        <span class="point">{{m.points}}</span>
+                    </li>
+                    {% endfor %}
+                    
+                    {% for g in gk %}
+                    <li class="info-card-item">
+                        <div class="player">{{g}}</div>
+                        <span class="point">{{g.points}}</span>
+                    </li>
+                    {% endfor %}
+
+                    <h3 style="padding:1rem 0.5rem;">Extras:</h3>
+                    
+
+                    {% for ff in ex_f %}
+                    <li class="info-card-item">
+                        <div class="player">{{ff}}</div>
+                        <span class="point">{{ff.points}}</span>
+                    </li>
+                    {% endfor %}
+                    
+                    {% for mm in ex_m %}
+                    <li class="info-card-item">
+                        <div class="player">{{mm}}</div>
+                        <span class="point">{{mm.points}}</span>
+                    </li>
+                    {% endfor %}
+
+                    {% for dd in ex_d %}
+                    <li class="info-card-item">
+                        <div class="player">{{dd}}</div>
+                        <span class="point">{{dd.points}}</span>
+                    </li>
+                    {% endfor %}
+                    
+                    {% for gg in ex_g %}
+                    <li class="info-card-item">
+                        <div class="player">{{gg}}</div>
+                        <span class="point">{{gg.points}}</span>
+                    </li>
+                    {% endfor %}
+
+
+                </ul>
+                <h2 style="padding:1rem 0.5rem;">Total Points : {{total}} </h2>
+                <h1 class="warning">{{warning}}</h1>
+            </div>
+
+            <div class="info-card">
+                <h3>Points/Rankings</h3>
+                <ul>
+                    <li class="info-card-item">
+                        Overall Points: <span>1222</span>
+                    </li>
+                    <li class="info-card-item">
+                        Overall Rank: <span>1,22,452</span>
+                    </li>
+                    <li class="info-card-item">
+                        Total Players: <span>111222</span>
+                    </li>
+                    <li class="info-card-item">
+                        Gameweek Points: <span>22</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Transfers and Finance</h3>
+                <ul>
+                    <li class="info-card-item">
+                        Gameweek transfers : <span>0</span>
+                    </li>
+                    <li class="info-card-item">
+                        Total transfers: <span>1</span>
+                    </li>
+                    <li class="info-card-item">
+                        Squad Value: <span>&pound;100m</span>
+                    </li>
+                    <li class="info-card-item">
+                        In the bank: <span>&pound;0m</span>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

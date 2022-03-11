@@ -1,6 +1,314 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>{{status}}</h1>
-</br>
-<p>This is the status page.</p>
+<!-- -----------Status Page------------ -->
+
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="wrapper">
+  <div class="status-wrapper">
+    <div class="user-info">
+      <p>Welcome, {{user}}.</p>
+    </div>
+    <h2 class="status-title">
+      Gameweek <span id="gameweekNumber">1</span> Status
+    </h2>
+    <div class="game-table">
+      <table class="game-table-show">
+        <thead class="game-head">
+          <tr>
+            <th>Matches Played</th>
+            <th>Matches Remaining</th>
+            <th>Matches Live</th>
+          </tr>
+        </thead>
+        <tbody class="game-body">
+          <tr>
+            <th><span>7</span> / 10</th>
+            <td><span>3</span> / 10</td>
+            <td>None</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="status-contents">
+      <div class="left-contents">
+        <section class="gameweek-news">
+          <h3 class="week">Gameweek <span id="week">1</span> Statistics</h3>
+          <div class="info">
+            <div class="statistics statistics-left">
+              <ul class="week-stats">
+                <li>
+                  <h4>Highest Points:</h4>
+                  <div class="high">100</div>
+                </li>
+                <li>
+                  <h4>Most Transferred In:</h4>
+                  <div>Salah</div>
+                </li>
+                <!-- <li>
+                                    <h4>Transfers Made:</h4>
+                                    <div>20,000</div>
+                                </li> -->
+                <li>
+                  <h4>Average Points:</h4>
+                  <div class="avg">20</div>
+                </li>
+                <li>
+                  <h4>Most Captained:</h4>
+                  <div>Salah</div>
+                </li>
+                <li>
+                  <h4>Your Points:</h4>
+                  <div>56</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="links-right">
+              <div>
+                <!-- make link for my-team page -->
+                <a class="my-team" href="#">
+                  <span>My Team</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+              <div>
+                <a class="predictor" href="#">
+                  <span>Predictor</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h2 class="predictor-status">Suggestion From The Predictor</h2>
+        <section class="scout">
+          <div class="scout-news">
+            <img src="{% static 'players/images/status.jpg' %}" alt="" />
+
+            <article>
+              <div class="heading">
+                <h2 class="underline-hover-effect">
+                  Predictor Suggests: Mo Salah to extend his home run
+                </h2>
+              </div>
+              <p>
+                The Egyptian King has scored in his last three Anfield matches
+                and is among top players in this upcoming Gameweek best XI
+              </p>
+              <small>
+                <b>07/02/2022</b>
+              </small>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <div class="right-contents">
+        <div class="top-scorrer">
+          <div class="score-head">
+            <div class="gw-kings">GW TOP SCORERS</div>
+            <div class="total">100 pts</div>
+          </div>
+          <div class="kings-info">
+            <div>Pos</div>
+            <div>Tm</div>
+            <div>Player</div>
+            <div>Club</div>
+            <div>Pts</div>
+          </div>
+          <!-- 11 cards for 11 players  -->
+          <div class="kings">
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+            <div class="king-card">
+              <div class="pos">GKP</div>
+              <div class="jersey">Jer</div>
+              <div class="player">Pope</div>
+              <div class="club">BUR</div>
+              <div class="pts">13</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="top-transfers">
+            <section class="transfers-in">
+                <div class="in-heading">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>Most Popular Transfers IN</span>
+                </div>
+                <div class="transfer-in-info">
+                    <div>In</div>
+                    <div>Pos</div>
+                    <div>Player</div>
+                    <div>Club</div>
+                    <div>By</div>
+                </div>
+                <div class="transfers">
+                    <div class="transfer-in-card">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-in-card">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-in-card">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-in-card">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-in-card">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="transfers-out">
+                <div class="out-heading">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Most Popular Transfers OUT</span>
+                </div>
+                <div class="transfer-out-info">
+                    <div>Out</div>
+                    <div>Pos</div>
+                    <div>Player</div>
+                    <div>Club</div>
+                    <div>By</div>
+                </div>
+                <div class="transfers">
+                    
+                    <div class="transfer-out-card">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-out-card">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-out-card">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-out-card">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                    <div class="transfer-out-card">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="pos">FWD</div>
+                        <div class="player">Salah</div>
+                        <div class="club">LIV</div>
+                        <div class="by">332587</div>
+                    </div>
+                </div>
+            </section>
+        </div> -->
+
+    <!-- ------------status-wrapper-end----------- -->
+  </div>
+
+  <!-- ----------wrapper-end------------ -->
+</div>
+
 {% endblock content %}
