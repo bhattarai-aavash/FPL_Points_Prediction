@@ -23,10 +23,25 @@ class StatusView(View):
         if request.user.is_authenticated:
             n_user = request.user
             team = Team.objects.filter(user__username=n_user)
+            teams = Team.objects.all()
+            p = []
+            my_p = []
+            avg_p = []
+            a = 0
+            for t in teams:
+                p.append(t.week_point)
+                a += t.week_point
+            a = a/len(team)
+            maxx = max(p)
+            avg_p.append(a)
             for t in team:
                 team_id = t.id
+                my_p.append(t.week_point)
             context = {
                 'team_id': team_id,
+                'max': maxx,
+                'avgg': avg_p,
+                'team': team,
             }
             return render(request, 'players/status.html', context)
         else:

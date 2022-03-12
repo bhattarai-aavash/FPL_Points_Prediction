@@ -37,7 +37,7 @@
               <ul class="week-stats">
                 <li>
                   <h4>Highest Points:</h4>
-                  <div class="high">100</div>
+                  <div class="high">{{max}}</div>
                 </li>
                 <li>
                   <h4>Most Transferred In:</h4>
@@ -49,7 +49,9 @@
                                 </li> -->
                 <li>
                   <h4>Average Points:</h4>
-                  <div class="avg">20</div>
+                  {% for a in avgg %}
+                  <div class="avg">{{a}}</div>
+                  {% endfor %}
                 </li>
                 <li>
                   <h4>Most Captained:</h4>
@@ -57,7 +59,9 @@
                 </li>
                 <li>
                   <h4>Your Points:</h4>
-                  <div>56</div>
+                  {% for t in team %}
+                  <div>{{ t.week_point }}</div>
+                  {% endfor %}
                 </li>
               </ul>
             </div>

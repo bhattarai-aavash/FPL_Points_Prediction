@@ -520,62 +520,118 @@
                     {% endfor %} -->
 
                     {% for f in for %}
+                    {% if f|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{ f|truncatewords:2 }}</div>
+                        <span class="point">{{f.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{f}}</div>
                         <span class="point">{{f.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
 
                     {% for d in def %}
+                    {% if d|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{d|truncatewords:2}}</div>
+                        <span class="point">{{d.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{d}}</div>
                         <span class="point">{{d.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
 
                     {% for m in mid %}
+                    {% if m|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{m|truncatewords:2}}</div>
+                        <span class="point">{{m.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{m}}</div>
                         <span class="point">{{m.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
                     
                     {% for g in gk %}
+                    {% if g|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{g|truncatewords:2}}</div>
+                        <span class="point">{{g.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{g}}</div>
                         <span class="point">{{g.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
 
                     <h3 style="padding:1rem 0.5rem;">Extras:</h3>
                     
 
                     {% for ff in ex_f %}
+                    {% if ff|length > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{ ff|truncatewords:2 }}</div>
+                        <span class="point">{{ff.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{ff}}</div>
                         <span class="point">{{ff.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
                     
                     {% for mm in ex_m %}
+                    {% if mm|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{mm|truncatewords:2}}</div>
+                        <span class="point">{{mm.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{mm}}</div>
                         <span class="point">{{mm.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
 
                     {% for dd in ex_d %}
+                    {% if dd|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{dd|truncatewords:2}}</div>
+                        <span class="point">{{dd.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{dd}}</div>
                         <span class="point">{{dd.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
                     
                     {% for gg in ex_g %}
+                    {% if gg|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{gg|truncatewords:2}}</div>
+                        <span class="point">{{gg.points}}</span>
+                    </li>
+                    {% else %}
                     <li class="info-card-item">
                         <div class="player">{{gg}}</div>
                         <span class="point">{{gg.points}}</span>
                     </li>
+                    {% endif %}
                     {% endfor %}
 
 
