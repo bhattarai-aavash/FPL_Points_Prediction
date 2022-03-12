@@ -579,7 +579,7 @@
                     
 
                     {% for ff in ex_f %}
-                    {% if ff|length > 2 %}
+                    {% if ff|wordcount > 2 %}
                     <li class="info-card-item">
                         <div class="player">{{ ff|truncatewords:2 }}</div>
                         <span class="point">{{ff.points}}</span>
