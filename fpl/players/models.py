@@ -25,8 +25,9 @@ class Team(models.Model):
     user = models.OneToOneField(
         'auth.User', on_delete=models.CASCADE, null=True, blank=True)
     transfer_counter = models.IntegerField(default=1)
-    captain = models.OneToOneField(
+    captain = models.ForeignKey(
         Players, on_delete=models.CASCADE, null=True, related_name='captain')
+    squad_value = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.name}'

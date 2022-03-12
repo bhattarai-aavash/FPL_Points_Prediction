@@ -16,5 +16,7 @@ urlpatterns = [
     path('help/<int:team_id>', views.HelpView.as_view(), name="help"),
     # path('edit/<int:player_id>',
     #      views.edit, name='edit'),
+    path('dreamteam/<int:team_id>',
+         views.DreamTeamView.as_view(), name="dreamteam"),
     path('league/<int:team_id>', views.LeagueView.as_view(), name='league'),
 ]

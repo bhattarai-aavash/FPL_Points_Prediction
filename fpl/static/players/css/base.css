@@ -92,7 +92,7 @@ ul li {
 .nav_bar {
   margin: auto;
   border-bottom: 1px solid black;
-  width: 1120px;
+  width: 1200px;
   height: 50px;
   margin-top: -50px;
 
@@ -137,7 +137,7 @@ ul li {
   width: 425px;
   height: 425px;
   box-shadow: 0 0 5px gainsboro;
-  margin: 4% 16% 4% 12%;
+  margin: 4% 20% 4% 8%;
   text-align: center;
 }
 .login-form h1,
@@ -187,7 +187,7 @@ ul li {
 }
 .choose-team {
   width: 50%;
-  margin: 1rem 0rem 1rem 12rem;
+  margin: 1rem 0rem 1rem 10rem;
 }
 .choose-team > h3 {
   margin: 0.5rem;
@@ -211,15 +211,15 @@ ul li {
   margin: 0 auto;
   padding: 5px;
   min-height: 500px;
-  background-color: rgba(236, 219, 219, 0.938);
+  /* background-color: rgba(236, 219, 219, 0.938); */
 }
 
 /* -----------------1. Status page-----------------  */
 .status-wrapper {
-  max-width: 1120px;
+  max-width: 1170px;
   margin: 0.5rem auto;
   min-height: 500px;
-  background-color: rgb(204 226 221 / 94%);
+  /* background-color: rgb(204 226 221 / 94%); */
 }
 .status-wrapper .user-info {
   margin: 1.5rem 0 0;
@@ -314,7 +314,7 @@ ul li {
   width: 8rem;
   background-color: rgb(55, 0, 60);
   padding: 0.75rem 1rem;
-  margin: 0 1rem;
+  margin: 0 1.35rem;
   border-radius: 5px;
 }
 .predictor-status {
@@ -451,7 +451,7 @@ ul li {
 /* --------------Help Page Section-------------  */
 .help-layout {
   max-width: 1040px;
-  margin: 0.5rem 2rem;
+  margin: 0.5rem 0rem;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   padding: 5px;
@@ -462,6 +462,9 @@ ul li {
 }
 .sub-headings {
   margin: 0 0 6px 0;
+}
+.questions > h4 {
+  margin: 1rem 0;
 }
 
 .collapsible h5 button {
@@ -532,6 +535,14 @@ ul li {
 .leagues-title {
   margin: 1rem 0;
 }
+.leagues-info {
+  font-size: 0.95rem;
+  font-weight: normal;
+  /* text-align: center; */
+  background-color: var(--gray);
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
 .leagues {
   margin: 1rem 0;
 }
@@ -544,10 +555,11 @@ ul li {
   border-collapse: initial;
 }
 .league-head {
-  background-color: rgb(239 239 239);
+  background-color: var(--bg-light);
+  color: var(--gray);
 }
 .league-head tr th {
-  padding: 0.3rem 0;
+  padding: 0.4rem 0;
   font-size: small;
 }
 .league-body tr td {
@@ -555,9 +567,9 @@ ul li {
   border-bottom: 1px solid rgb(239, 239, 239);
   font-weight: normal;
 }
-.league-body tr:nth-child(even) {
+/* .league-body tr:nth-child(even) {
   background-color: var(--light);
-}
+} */
 /* ---------------FOOTER----------------  */
 .bottom {
   height: 4rem;

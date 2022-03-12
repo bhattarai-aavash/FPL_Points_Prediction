@@ -10,4 +10,5 @@ class Command(BaseCommand):
         team = Team.objects.all()
         for t in team:
             t.total_points += t.week_point
+            t.week_point = 0
             t.save()

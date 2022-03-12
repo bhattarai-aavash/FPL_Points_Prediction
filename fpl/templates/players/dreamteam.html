@@ -1,0 +1,74 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="wrapper">
+    <h1>DreamTeam</h1>
+    <br />
+    <div>
+        <h2>Four Three Three</h2>
+        <br />
+        <h3>
+            {{keeper.name}}
+            <br />
+            <br>
+            {% for f in fwd %}
+            {% if forloop.counter < 4 %}{{f}} {% endif %} 
+            <br />
+            {% endfor %} 
+
+            {% for m in mid %} 
+            {% if forloop.counter < 4 %} {{m}} {% endif%} <br />
+            {% endfor %}
+
+            {% for d in def %} 
+            {% if forloop.counter < 5 %} {{d}} {% endif%} <br />
+            {% endfor %}
+        </h3>
+    </div>
+    <br><br>
+    <div>
+        <h2>Four Four Two</h2>
+        <br />
+        <h3>
+            {{keeper.name}}
+            <br />
+            <br>
+            {% for f in fwd %} 
+            {% if forloop.counter < 3 %} {{f}} {% endif %} <br />
+            {% endfor %} 
+
+            {% for m in mid %} 
+            {% if forloop.counter < 5 %} {{m}} {% endif%} <br />
+            {% endfor %}<br> 
+
+            {% for d in def %} 
+            {% if forloop.counter < 5 %} {{d}} {% endif%} <br />
+            {% endfor %}
+        </h3>
+    </div>
+    <br><br>
+    <div>
+        <h2>Five Four One</h2>
+        <br />
+        <h3>
+            {{keeper.name}}
+            <br />
+            <br>
+            {% for f in fwd %} 
+            {% if forloop.counter < 2 %} {{f}} {% endif %} <br />
+            {% endfor %} 
+            
+            {% for m in mid %} 
+            {% if forloop.counter < 5 %} {{m}} {% endif%} <br />
+            {% endfor %}
+            <br>
+            {% for d in def %} 
+            {% if forloop.counter < 6 %} {{d}} {% endif%} <br />
+            {% endfor %}
+            <br>
+        </h3>
+    </div>
+
+</div>
+
+{% endblock content %}

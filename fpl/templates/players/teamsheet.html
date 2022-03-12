@@ -4,71 +4,6 @@
 {% load static %}
 {% block content %}
 
-<!-- <h1>{{name}}</h1> -->
-<!-- <h3>Team Captain: {{captain}} </h3> -->
-<!-- <h2>{{total_price}}</h2> -->
-<!-- <br />
-<h2>Money Remaining:  {{budget}} </h2>
-<br>
-{% for f in for %}
-<p>
-<h4>{{f}}: {{f.points}}</h4>
-</p><br>
-{% endfor %}
-{% for d in def %}
-<p>
-<h4>{{d}}: {{d.points}}</h4>
-</p><br>
-{% endfor %}
-{% for m in mid %}
-<p>
-<h4>{{m}}: {{m.points}}</h4>
-</p><br>
-{% endfor %}
-
-{% for g in gk %}
-<p>
-<h4>{{g}}: {{g.points}}</h4>
-</p><br>
-{% endfor %}
-
-<h3 style="background-color:cornsilk">Extras:</h3>
-<br />
-{% for ff in ex_f %}
-<p>
-<h4 style="padding-left: 5%;">{{ff}}:{{ff.points}}</h4>
-</p><br />
-{% endfor %}
-
-{% for mm in ex_m %}
-<p>
-<h4 style="padding-left: 5%;">{{mm}}:{{mm.points}}</h4>
-</p><br />
-{% endfor %}
-
-{% for dd in ex_d %}
-<p>
-<h4 style="padding-left: 5%;">{{dd}}:{{dd.points}}</h4>
-</p><br />
-{% endfor %}
-
-{% for gg in ex_g %}
-<p>
-<h4 style="padding-left: 5%;">{{gg}}:{{gg.points}}</h4>
-</p><br />
-{% endfor %}
-
-<h2 style="padding-left:40%;">Total Points: {{total}} </h2>
-<h1 class="warning">{{warning}}</h1>  -->
-
-
-
-
-
-<!-- --------------------------------------------------- -->
-
-
-
 
 <div class="wrapper">
 
@@ -98,8 +33,13 @@
                     </div> -->
 
                     <div class="team-inform">
-                        <h3>
-                            Team Captain: <span class="capt-band">C</span>{{captain}} 
+                        <h3 class="addn-info">
+                            <div>
+                                Team Captain: <span class="capt-band">C</span>{{captain}} 
+                            </div>
+                            <div style="margin-right:4rem;">
+                                Latest Points: {{total}}
+                            </div>
                         </h3>
                         <!-- <h2>{{total_price}}</h2> -->
                         
@@ -135,165 +75,72 @@
                 <div class="pitch">
                     <div class="goalkeeper">
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    goalkeeper tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Lloris</div>
-                            <div class="player-points">0</div>
+                            {% for g in gk %}
+                            <div class="player-name">{{g}}</div>
+                            <div class="player-points">{{g.points}}</div>
+                            {% endfor %}
                         </div>
                     </div>
-
+                    <!-- <div class="band show-band">C</div> -->
                     <div class="defenders">
+                        {% for d in def %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    defender tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Burn</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{d}}</div>
+                            <div class="player-points">{{d.points}}</div>
                         </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    defender tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Maguire</div>
-                            <div class="player-points">0</div>
-                        </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    defender tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Aaron</div>
-                            <div class="player-points">0</div>
-                        </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    defender tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Alonso</div>
-                            <div class="player-points">0</div>
-                        </div>
+                        {% endfor %}
                     </div>
+                    
 
                     <div class="midfielders">
+                        {% for m in mid %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    midfielder tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Maddison</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{m}}</div>
+                            <div class="player-points">{{m.points}}</div>
                         </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    midfielder tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Zaha</div>
-                            <div class="player-points">0</div>
-                        </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    midfielder tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Jota</div>
-                            <div class="player-points">0</div>
-                        </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    midfielder tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Son</div>
-                            <div class="player-points">0</div>
-                        </div>
+                        {% endfor %}
                     </div>
 
                     <div class="forwards">
+                        {% for f in for %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    forward tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Kane</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{f}}</div>
+                            <div class="player-points">{{f.points}}</div>
                         </div>
-                        <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    forward tshirt picture
-                                </div>
-                                <div class="band show-band">C</div>
-                            </div>
-                            <div class="player-name">Ronaldo</div>
-                            <div class="player-points">0</div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
 
                 <div class="substitutes">
+                    <h3 style="padding-left:2rem;">Substitues</h3>
                     <div class="subs">
+                        {% for gg in ex_g %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    substitue tshirt picture
-                                </div>
-                            </div>
-                            <div class="player-name">Foster</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{gg}}</div>
+                            <div class="player-points">{{gg.points}}</div>
                         </div>
+                        {% endfor %}
+
+                        {% for dd in ex_d %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    substitue tshirt picture
-                                </div>
-                            </div>
-                            <div class="player-name">Digne</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{dd}}</div>
+                            <div class="player-points">{{dd.points}}</div>
                         </div>
+                        {% endfor %}
+
+                        {% for mm in ex_m %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    substitue tshirt picture
-                                </div>
-                            </div>
-                            <div class="player-name">King</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{mm}}</div>
+                            <div class="player-points">{{mm.points}}</div>
                         </div>
+                        {% endfor %}
+
+                        {% for ff in ex_f %}
                         <div class="player-box">
-                            <div class="tshirt">
-                                <div class="jersey">
-                                    substitue tshirt picture
-                                </div>
-                            </div>
-                            <div class="player-name">Pukki</div>
-                            <div class="player-points">0</div>
+                            <div class="player-name">{{ff}}</div>
+                            <div class="player-points">{{ff.points}}</div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -460,18 +307,25 @@
                     </li>
                     {% endfor %} -->
 
-                    {% for f in for %}
+                    {% for g in gk %}
                     <li class="info-card-item">
-                        <div class="player">{{f}}</div>
-                        <span class="point">{{f.points}}</span>
+                        <div class="player">{{g}}</div>
+                        <span class="point">{{g.points}}</span>
                     </li>
                     {% endfor %}
 
                     {% for d in def %}
+                    <!-- {% if d|wordcount > 2 %}
+                    <li class="info-card-item">
+                        <div class="player">{{d|truncatewords:2}}</div>
+                        <span class="point">{{d.points}}</span>
+                    </li>
+                    {% else %} -->
                     <li class="info-card-item">
                         <div class="player">{{d}}</div>
                         <span class="point">{{d.points}}</span>
                     </li>
+                    <!-- {% endif %} -->
                     {% endfor %}
 
                     {% for m in mid %}
@@ -481,20 +335,26 @@
                     </li>
                     {% endfor %}
                     
-                    {% for g in gk %}
+                    {% for f in for %}
                     <li class="info-card-item">
-                        <div class="player">{{g}}</div>
-                        <span class="point">{{g.points}}</span>
+                        <div class="player">{{f}}</div>
+                        <span class="point">{{f.points}}</span>
                     </li>
                     {% endfor %}
 
                     <h3 style="padding:1rem 0.5rem;">Extras:</h3>
                     
-
-                    {% for ff in ex_f %}
+                    {% for gg in ex_g %}
                     <li class="info-card-item">
-                        <div class="player">{{ff}}</div>
-                        <span class="point">{{ff.points}}</span>
+                        <div class="player">{{gg}}</div>
+                        <span class="point">{{gg.points}}</span>
+                    </li>
+                    {% endfor %}
+                    
+                    {% for dd in ex_d %}
+                    <li class="info-card-item">
+                        <div class="player">{{dd}}</div>
+                        <span class="point">{{dd.points}}</span>
                     </li>
                     {% endfor %}
                     
@@ -504,18 +364,11 @@
                         <span class="point">{{mm.points}}</span>
                     </li>
                     {% endfor %}
-
-                    {% for dd in ex_d %}
-                    <li class="info-card-item">
-                        <div class="player">{{dd}}</div>
-                        <span class="point">{{dd.points}}</span>
-                    </li>
-                    {% endfor %}
                     
-                    {% for gg in ex_g %}
+                    {% for ff in ex_f %}
                     <li class="info-card-item">
-                        <div class="player">{{gg}}</div>
-                        <span class="point">{{gg.points}}</span>
+                        <div class="player">{{ff}}</div>
+                        <span class="point">{{ff.points}}</span>
                     </li>
                     {% endfor %}
 
@@ -538,7 +391,7 @@
                         Total Players: <span>111222</span>
                     </li>
                     <li class="info-card-item">
-                        Gameweek Points: <span>22</span>
+                        Gameweek Points: <span>{{total}}</span>
                     </li>
                 </ul>
             </div>
@@ -552,10 +405,10 @@
                         Total transfers: <span>1</span>
                     </li>
                     <li class="info-card-item">
-                        Squad Value: <span>&pound;100m</span>
+                        Squad Value: <span>&pound;{{total_price}}m</span>
                     </li>
                     <li class="info-card-item">
-                        In the bank: <span>&pound;0m</span>
+                        In the bank: <span>&pound;{{budget}}m</span>
                     </li>
                 </ul>
             </div>

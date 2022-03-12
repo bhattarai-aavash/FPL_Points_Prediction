@@ -1,4 +1,5 @@
 from multiprocessing import context
+from unittest.case import DIFF_OMITTED
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Players, Team
@@ -8,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+import pandas as pd
 # import requests
 # import csv
 # import pandas as pd
@@ -21,14 +23,29 @@ class StatusView(View):
         if request.user.is_authenticated:
             n_user = request.user
             team = Team.objects.filter(user__username=n_user)
+            teams = Team.objects.all()
+            p = []
+            my_p = []
+            avg_p = []
+            a = 0
+            for t in teams:
+                p.append(t.week_point)
+                a += t.week_point
+            a = a/len(teams)
+            maxx = max(p)
+            avg_p.append(a)
             for t in team:
                 team_id = t.id
+                my_p.append(t.week_point)
             context = {
                 'team_id': team_id,
+                'max': maxx,
+                'avgg': avg_p,
+                'team': team,
             }
             return render(request, 'players/status.html', context)
         else:
-            return render(request, 'players/status.html')
+            return render(request, 'players/home.html')
 
 
 class FixturesView(View):
@@ -1012,7 +1029,7 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(reverse('status'))
             else:
                 return HttpResponse('User not found.Recheck or create a new account')
         return HttpResponse("Invalid, Login Again!!")
@@ -1275,6 +1292,23 @@ class TeamView(View):
                     #             goalkeeps.append(player)
                     #             if (e not in extra_g) and (e not in goalkeeps):
                     #                 extra_g.append(e)
+        for e in extras:
+            if e.type == 'FWD':
+                if (e not in forwards) and (e not in extra_f):
+                    extra_f.append(e)
+                    print(e)
+            if e.type == 'DEF':
+                if (e not in defenders) and (e not in extra_d):
+                    extra_d.append(e)
+                    print(e)
+            if e.type == 'MID':
+                if (e not in midfields) and (e not in extra_m):
+                    extra_m.append(e)
+                    print(e)
+            if e.type == 'GK':
+                if (e not in goalkeeps) and (e not in extra_g):
+                    extra_g.append(e)
+                    print(e)
         print(forwards)
         print(midfields)
         print(defenders)
@@ -1312,6 +1346,7 @@ class TeamView(View):
                 else:
                     total_point += p.points
         team.week_point = total_point
+        team.squad_value = total_price
         team.save()
         print(team.week_point)
         # print(extra_g)
@@ -1360,6 +1395,7 @@ class PickTeamView(View):
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
+            'team': team,
         }
         return render(request, 'players/pickteam.html', context)
 
@@ -1378,6 +1414,7 @@ class PickTeamView(View):
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
+            'team': team,
         }
         print(cap)
         return render(request, 'players/pickteam.html', context)
@@ -1386,6 +1423,8 @@ class PickTeamView(View):
 class LeagueView(View):
     def get(self, request, team_id):
         teams = Team.objects.all()
+        my_team = Team.objects.get(id=team_id)
+        # print('\n'*3, my_team, '\n'*3)
         lists = []
         # print(lists)
         #ordered_authors = Author.objects.order_by('-score', 'last_name')[:30]
@@ -1394,6 +1433,7 @@ class LeagueView(View):
         context = {
             'team_id': team_id,
             'lis': lists,
+            'my_team': my_team,
         }
         return render(request, 'players/leagues.html', context)
 
@@ -1404,3 +1444,62 @@ class HelpView(View):
             'team_id': team_id,
         }
         return render(request, 'help.html', context)
+
+
+class DreamTeamView(View):
+    def get(self, request, team_id):
+        df = pd.read_csv(
+            'https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2021-22/gws/gw25.csv')
+        GK_filt = df['position'] == 'GK'
+        mid_filt = df['position'] == 'MID'
+        def_filt = df['position'] == 'DEF'
+        fwd_filt = df['position'] == 'FWD'
+        df_GK = df.loc[GK_filt, ['position', 'name', 'total_points']]
+        df_mid = df.loc[mid_filt, ['position', 'name', 'total_points']]
+        df_def = df.loc[def_filt, ['position', 'name', 'total_points']]
+        df_fwd = df.loc[fwd_filt, ['position', 'name', 'total_points']]
+        df_mid.sort_values(by=['total_points'], inplace=True, ascending=False)
+
+        df_fwd.sort_values(by=['total_points'], inplace=True, ascending=False)
+        df_def.sort_values(by=['total_points'], inplace=True, ascending=False)
+        keeper = df_GK.loc[df_GK['total_points'].idxmax()]
+        print(keeper)
+        print(df_fwd)
+        forward = df_fwd[0:4].name.tolist()
+        midfield = df_mid[0:5].name.tolist()
+        defender = df_def[0:5].name.tolist()
+        print(forward)
+        # for 433
+        context = {
+            'team_id': team_id,
+            'keeper': keeper,
+            'fwd': forward,
+            'def': defender,
+            'mid': midfield,
+        }
+        return render(request, 'players/dreamteam.html', context)
+        # goalkeeper = []
+        # forward = []
+        # defender = []
+        # mid = []
+        # formation('fft')
+
+        # def formation(x):
+        #     if x == 'fft':
+        #         # goalkeeper.append(keeper)
+        #         # forward.append(df_fwd.head(3))
+        #         # defender.append(df_def.head(4))
+        #         # mid.append(df_mid.head(4))
+        #         goalkeeper = keeper
+        #         forward = df_fwd.head(3)
+        #         defender = df_def.head(4)
+        #         midfield = df_mid.head(4)
+        #         context = {
+        #             'team_id': team_id,
+        #             'fwd': df_fwd,
+        #             'goalkeeper': goalkeeper,
+        #             'forward': forward,
+        #             'midfield': midfield,
+        #             'defender': defender,
+        #         }
+        #         return render(request, 'players/dreamteam.html', context)

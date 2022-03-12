@@ -107,6 +107,10 @@ a {
   font-size: 1rem;
   font-weight: bold;
 }
+.explore-btn:hover,
+.signInBtn:hover {
+  box-shadow: 0 0 8px 1px var(--bg-accent2);
+}
 .inside {
   background-color: var(--bg-dark);
   padding: 3rem 5rem;

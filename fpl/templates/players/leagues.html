@@ -4,6 +4,8 @@
 
 <div class="wrapper">
     <h1 class="leagues-title">Leagues</h1>
+
+    <h2 class="leagues-info">The leagues might still be updating. Please check your league standings after all the games have been played.</h2>
     <div class="leagues">
         <table class="leagues-table">
             <thead class="league-head">
@@ -13,7 +15,7 @@
                     <th>Manager Name</th>
                     <th>Points</th>
                     <th>Squad Value</th>
-                    <th>Transfers</th>
+                    <!-- <th>Transfers</th> -->
                 </tr>
             </thead>
 
@@ -21,10 +23,10 @@
                 {% for l in lis %}
                 <tr>
                     <td>{{forloop.counter}}.</td>
-                    <td>{{l.name}}</td>
+                    <td class="my-team">{{l.name}}</td>
                     <td>{{l.user}}</td>
                     <td>{{l.total_points}}</td>
-                    <!-- <td> put total team price </td> -->
+                    <td> {{l.squad_value}}m </td>
                     <!-- <td> transfer made(1, 2) --- or transfer cost(-4, -8)</td> -->
                 </tr>
                 {% endfor %}
@@ -32,6 +34,7 @@
             </tbody>
 
         </table>
+        <div class="my-team-row" style="display:none;">{{my_team}}</div>
     </div>
 </div>
 
