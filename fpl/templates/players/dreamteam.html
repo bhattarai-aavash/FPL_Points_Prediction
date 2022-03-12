@@ -2,11 +2,54 @@
 {% block content %}
 
 <div class="wrapper">
-    <h1>DreamTeam</h1>
-    <br />
-    <div>
-        <h2>Four Three Three</h2>
-        <br />
+    <h1 class="dream-team-title">Dream Team</h1>
+
+    <div class="formation">
+        <h2>Four Three Three | 4-3-3</h2>
+
+        <div class="pitch">
+            <div class="goalkeeper">
+                <div class="player-box">
+                    <div class="player-name">{{keeper.name}}</div>
+                </div>
+            </div>
+
+            <div class="defenders dt">
+                {% for d in def %}
+                {% if forloop.counter < 5 %} 
+                <div class="player-box">
+                    <div class="player-name">{{d}}</div>
+                </div>
+                {% endif%}
+                {% endfor %}
+            </div>
+
+            <div class="midfielders dt">
+                {% for m in mid %}
+                {% if forloop.counter < 4 %} 
+                <div class="player-box">
+                    <div class="player-name">{{m}}</div>
+                </div>
+                {% endif%}
+                {% endfor %}
+            </div>
+
+            <div class="forwards dt">
+                {% for f in fwd %}
+                {% if forloop.counter < 4 %} 
+                <div class="player-box">
+                    <div class="player-name">{{f}}</div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- --------------------------------Next----------------------- -->
+    <!-- <div>
         <h3>
             {{keeper.name}}
             <br />
@@ -24,50 +67,96 @@
             {% if forloop.counter < 5 %} {{d}} {% endif%} <br />
             {% endfor %}
         </h3>
-    </div>
-    <br><br>
-    <div>
-        <h2>Four Four Two</h2>
-        <br />
-        <h3>
-            {{keeper.name}}
-            <br />
-            <br>
-            {% for f in fwd %} 
-            {% if forloop.counter < 3 %} {{f}} {% endif %} <br />
-            {% endfor %} 
-
-            {% for m in mid %} 
-            {% if forloop.counter < 5 %} {{m}} {% endif%} <br />
-            {% endfor %}<br> 
-
-            {% for d in def %} 
-            {% if forloop.counter < 5 %} {{d}} {% endif%} <br />
+    </div> -->
+    
+    <div class="formation">
+        <h2>Four Four Two | 4-4-2</h2>
+        
+        <div class="pitch">
+            <div class="goalkeeper">
+                <div class="player-box">
+                    <div class="player-name">{{keeper.name}}</div>
+                </div>
+            </div>
+        
+            <div class="defenders dt">
+                {% for d in def %}
+                {% if forloop.counter < 5 %} 
+                <div class="player-box">
+                    <div class="player-name">{{d}}</div>
+                </div>
+                {% endif%}
+                {% endfor %}
+            </div>
+        
+            <div class="midfielders dt">
+                {% for m in mid %}
+                {% if forloop.counter < 5 %} <div class="player-box">
+                    <div class="player-name">{{m}}</div>
+            </div>
+            {% endif%}
             {% endfor %}
-        </h3>
-    </div>
-    <br><br>
-    <div>
-        <h2>Five Four One</h2>
-        <br />
-        <h3>
-            {{keeper.name}}
-            <br />
-            <br>
-            {% for f in fwd %} 
-            {% if forloop.counter < 2 %} {{f}} {% endif %} <br />
-            {% endfor %} 
+            </div>
             
-            {% for m in mid %} 
-            {% if forloop.counter < 5 %} {{m}} {% endif%} <br />
+            <div class="forwards dt">
+                {% for f in fwd %}
+                {% if forloop.counter < 3 %} <div class="player-box">
+                    <div class="player-name">{{f}}</div>
+            </div>
+            {% endif %}
             {% endfor %}
-            <br>
-            {% for d in def %} 
-            {% if forloop.counter < 6 %} {{d}} {% endif%} <br />
-            {% endfor %}
-            <br>
-        </h3>
+            </div>
+        
+        
+        </div>
+        
     </div>
+        
+    <!-- -----------------Next------------------  -->
+    
+    <div class="formation">
+        <h2>Five Four One | 5-4-1</h2>
+    
+        <div class="pitch">
+            <div class="goalkeeper">
+                <div class="player-box">
+                    <div class="player-name">{{keeper.name}}</div>
+                </div>
+            </div>
+    
+            <div class="defenders dt">
+                {% for d in def %}
+                {% if forloop.counter < 6 %} <div class="player-box">
+                    <div class="player-name">{{d}}</div>
+                </div>
+                {% endif%}
+                {% endfor %}
+            </div>
+    
+            <div class="midfielders dt">
+                {% for m in mid %}
+                {% if forloop.counter < 5 %} 
+                <div class="player-box">
+                    <div class="player-name">{{m}}</div>
+                </div>
+                {% endif%}
+                {% endfor %}
+            </div>
+    
+            <div class="forwards dt">
+                {% for f in fwd %}
+                {% if forloop.counter < 2 %} 
+                <div class="player-box">
+                    <div class="player-name">{{f}}</div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        
+        </div>
+    </div>
+    
+    
 
 </div>
 

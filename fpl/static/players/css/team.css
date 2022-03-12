@@ -505,6 +505,20 @@
   background-position: left bottom;
   color: var(--bg-dark);
 }
+/* ---------------------DREAM-TEAM-PAGE-------------- */
+.dream-team-title {
+  margin: 1rem 0;
+}
+.formation {
+  margin: 1rem 0;
+}
+.formation > h2 {
+  margin: 1.25rem 0;
+  text-align: center;
+}
+.pitch .dt {
+  margin: 4.5rem 0;
+}
 /* -------------------FIXTURES-PAGE------------------ */
 .fixtures-wrapper > h2 {
   margin: 1.5rem 0;
