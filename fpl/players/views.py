@@ -31,7 +31,7 @@ class StatusView(View):
             for t in teams:
                 p.append(t.week_point)
                 a += t.week_point
-            a = a/len(team)
+            a = a/len(teams)
             maxx = max(p)
             avg_p.append(a)
             for t in team:
@@ -50,6 +50,18 @@ class StatusView(View):
 
 class FixturesView(View):
     def get(self, request):
+        file = pd.read_csv(
+            r"C:\Users\giria\Downloads\epl-2021-GMTStandardTime.csv")
+        home = []
+        away = []
+        roundn = []
+        for Home, Away, Round in zip(file.Home_Team, file.Away_Team, file.RoundNumber):
+            home.append(Home)
+            away.append(Away)
+            roundn.append(Round)
+        print(home)
+        print(away)
+        mylist = zip(home, away, roundn)
         if request.user.is_authenticated:
             n_user = request.user
             team = Team.objects.filter(user__username=n_user)
@@ -57,6 +69,7 @@ class FixturesView(View):
                 team_id = t.id
             context = {
                 'team_id': team_id,
+                'mylist': mylist,
             }
             return render(request, 'players/fixtures.html', context)
         else:
@@ -1234,6 +1247,7 @@ class TeamView(View):
         total_price = 0
         # team = Team.objects.filter(user__username=n_user)
         team = Team.objects.get(pk=team_id)
+        teams = Team.objects.all()
         if team.user == request.user:
             players = team.players.all()
             print(len(players))
@@ -1411,6 +1425,7 @@ class TeamView(View):
             budget = 100-total_price
             budget = "{:.2f}".format(budget)
             names = team
+            nteams = len(teams)
             context = {
                 # 'players': players,
                 'name': names,
@@ -1428,6 +1443,8 @@ class TeamView(View):
                 'ex_d': extra_d,
                 'ex_g': extra_g,
                 'captain': cap,
+                'team': team,
+                'teams': nteams,
             }
             return render(request, 'players/teamsheet.html', context)
         return HttpResponseRedirect('/players')
@@ -1440,11 +1457,15 @@ class PickTeamView(View):
         r_players = team.players.all()
         r_extras = team.subs.all()
         c = team.captain
+        teams = Team.objects.all()
+        nteam = len(teams)
         context = {
             'players': r_players,
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
+            'team': team,
+            'teams': nteam,
         }
         return render(request, 'players/pickteam.html', context)
 
@@ -1455,14 +1476,18 @@ class PickTeamView(View):
         for cc in cap:
             team.captain = cc
         team.save()
+        teams = Team.objects.all()
         r_players = team.players.all()
         r_extras = team.subs.all()
         c = team.captain
+        nteam = len(teams)
         context = {
             'players': r_players,
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
+            'team': team,
+            'teams': nteam,
         }
         print(cap)
         return render(request, 'players/pickteam.html', context)

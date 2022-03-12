@@ -1,27 +1,10 @@
-let navLink = document.getElementById("nav_bar_links")
-console.log(navLink)
-
-let navLinks = document.getElementById("nav_bar_links").getElementsByTagName('li')
-console.log(navLinks)
-
-
-for(let i=0; i<navLinks.length; i++) {
-    navLinks[i].addEventListener("click", function(){
-
-        document.getElementsByClassName("active")[0].classList.remove('active');
-
-        navLinks[i].getElementsByTagName('a')[0].classList.add('active');
-
-        // doesnt work 
-        // works fine in mouseover instead of click 
-    })
-}
 // add an active class with different styling to the current page being selected 
 
 let currentLocation = location.href;
 const pages = document.querySelectorAll('#nav_bar_links a');
 pages.forEach( (page) => {
     // console.log(currentPage.href)
+    // page.classList.remove('active');
     if( page.href === currentLocation) {
         page.classList.add('active')
     }
@@ -49,6 +32,19 @@ faqs.forEach( (faq) =>{
             this.children[1].style.display = 'none';
         }
     })
+})
+
+// ------------------------Leagues Page-------------------------
+let currentManagerTeam = document.querySelector('.my-team-row');
+// console.log(currentManagerTeam)
+
+let allTeams = document.querySelectorAll('.my-team');
+allTeams.forEach(team =>{
+    // console.log(team.textContent)
+    if(team.textContent == currentManagerTeam.textContent){
+        team.parentElement.style.backgroundColor = `var(--light)`;
+        // team.textContent += ' *';
+    }
 })
 
 

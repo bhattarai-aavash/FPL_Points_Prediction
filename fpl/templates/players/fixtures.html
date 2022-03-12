@@ -1,4 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Fixtures</h1>
-<p>These are the upcoming fixtures.</p>
+<h3>
+    {% for h,a,r in mylist %}
+        Week-{{r}} {{h}} vs {{a}} 
+        <br>
+    {% endfor %}
+</h3>
 {% endblock content %}

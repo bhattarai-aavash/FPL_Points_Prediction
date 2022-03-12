@@ -1,29 +1,147 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="wrapper">
-  <h1>Pick Captain</h1>
-  <h3>Current Captain: {{captain}}</h3>
-  <br />
-  <form method="post">
-    {% csrf_token %}
-    <h2>Starting</h2>
-    <br />
-    {% for p in players %}
-    <h4>
-      <label for="captain">{{p}}</label>
-      <input type="radio" name="captain" value="{{p}}" />
-    </h4>
-    <br />
-    <br />
-    {% endfor %}
-    <input type="submit" value="submit" class="btn" />
-  </form>
-  <br /><br />
-  <h2>Substitutes</h2>
-  <br />
-  {% for ex in extras %}
-  <h4>{{ex}}</h4>
-  <br />
-  {% endfor %}
+  <!-- <h1>Pick Captain</h1>
+    <h3>Current Captain: {{captain}} </h3>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Starting</h2>
+        <br>
+        {% for p in players %}
+        <h4><label for="captain">{{p}}</label>
+        <input type="radio" name="captain" value="{{p}}">
+        </h4>
+        <br>
+        <br>
+        {% endfor %}
+        <input type="submit" value="submit" class="btn">
+    </form>
+        <br /><br />
+        <h2>Substitutes</h2>
+        <br>
+        {% for ex in extras %}
+        <h4>{{ex}}</h4>
+        <br />
+        {% endfor %} -->
+
+  <div class="teams-wrapper">
+    <!-- ----------------static-------------- -->
+    <div class="left-side-view">
+      <section class="my-team-layout">
+        <h1>Pick Captain - <span id="my-team-name">{{team.name}}</span></h1>
+
+        <h3>Current Captain:<span class="capt-band">C</span>{{captain}}</h3>
+
+        <p class="pick-captain-info">
+          To change you captain check the radio button on the left of a player
+          and then click on submit.
+        </p>
+
+        <div class="pitch-list">
+          <div class="players-list">
+            <div class="starters">
+              <form method="post">
+                {% csrf_token %}
+
+                <table class="players-table">
+                  <thead class="players-head">
+                    <tr>
+                      <th>#</th>
+                      <th>Starting 11</th>
+                      <th>Position</th>
+                      <th>Club</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="players-body">
+                    {% for p in players %}
+                    <tr>
+                      <td>
+                        <input type="radio" name="captain" value="{{p}}" />
+                      </td>
+                      <td><label for="captain">{{p.name}}</label></td>
+                      <td>{{p.type}}</td>
+                      <td>{{p.club}}</td>
+                      <td>&pound;{{p.price}}m</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+                <input
+                  type="submit"
+                  value="Submit Captain"
+                  class="btn captain-btn"
+                />
+              </form>
+            </div>
+
+            <div class="extras">
+              <table class="players-table">
+                <thead class="players-head">
+                  <tr>
+                    <th>#</th>
+                    <th>Substitutes</th>
+                    <th>Position</th>
+                    <th>Club</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+
+                <tbody class="players-body">
+                  {% for ex in extras %}
+                  <tr>
+                    <td>{{forloop.counter}}.</td>
+                    <td>{{ex.name}}</td>
+                    <td>{{ex.type}}</td>
+                    <td>{{ex.club}}</td>
+                    <td>&pound;{{ex.price}}m</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ----------Right Side------------- -->
+    <div class="right-side-view">
+      <h3>{{team.name}}</h3>
+
+      <div class="info-card">
+        <h3>Popular Captaincy</h3>
+        <ul>
+          <li class="info-card-item">Mohammed Salah: <span>MID</span></li>
+          <li class="info-card-item">Cristiano Ronaldo: <span>FWD</span></li>
+          <li class="info-card-item">Michael Antonio: <span>FWD</span></li>
+          <li class="info-card-item">Emiliano Martinez: <span>GK</span></li>
+          <li class="info-card-item">Reece James: <span>DEF</span></li>
+          <li class="info-card-item">Harry Kane: <span>FWD</span></li>
+          <li class="info-card-item">Heung Min Son: <span>MID</span></li>
+          <li class="info-card-item">Kevin DeBryne: <span>MID</span></li>
+          <li class="info-card-item">Jared Bowen: <span>MID</span></li>
+          <li class="info-card-item">Joao Cancelo: <span>DEF</span></li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3>Points/Rankings</h3>
+        <ul>
+          <li class="info-card-item">
+            Overall Points: <span>{{team.total_points}}</span>
+          </li>
+          <li class="info-card-item">Total Players: <span>{{teams}}</span></li>
+          <li class="info-card-item">
+            Gameweek Points: <span>{{team.week_point}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock content %}
