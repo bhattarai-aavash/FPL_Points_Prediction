@@ -51,7 +51,7 @@ class StatusView(View):
 class FixturesView(View):
     def get(self, request):
         file = pd.read_csv(
-            r"C:\Users\giria\Downloads\epl-2021-GMTStandardTime.csv")
+            r"epl-2021-GMTStandardTime.csv")
         home = []
         away = []
         roundn = []
