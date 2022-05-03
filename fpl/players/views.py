@@ -1,4 +1,5 @@
 from multiprocessing import context
+from turtle import pos
 from unittest.case import DIFF_OMITTED
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -55,21 +56,49 @@ class FixturesView(View):
         home = []
         away = []
         roundn = []
-        for Home, Away, Round in zip(file.Home_Team, file.Away_Team, file.RoundNumber):
+        gameday = []
+        gametime = []
+        # homelogo = []
+        # awaylogo = []
+        for Home, Away, Round, Gameday, Gametime in zip(
+            file.Home_Team,
+            file.Away_Team,
+            file.RoundNumber,
+            file.Date,
+            file.GameTime,
+            # file.Home_Logo,
+            # file.Away_Logo
+        ):
             home.append(Home)
             away.append(Away)
             roundn.append(Round)
-        print(home)
-        print(away)
-        mylist = zip(home, away, roundn)
+            gameday.append(Gameday)
+            gametime.append(Gametime)
+            # homelogo.append(Homelogo)
+            # awaylogo.append(Awaylogo)
+        # fixtures = []
+        # gamedate = []
+        # gametime = []
+        # for games in gameday:
+        #     # print(games)
+        #     fixtures = games.split(' ')
+        #     # print(fixtures)
+        # print(gametime)
+
+        # print(home, '\n'*2)
+        # print(away)
+        # mylist = zip(home, away, roundn, gameday)
+        mylist = zip(home, away, roundn, gameday, gametime)
         if request.user.is_authenticated:
             n_user = request.user
             team = Team.objects.filter(user__username=n_user)
             for t in team:
                 team_id = t.id
+            gameweek_no = 1
             context = {
                 'team_id': team_id,
                 'mylist': mylist,
+                'gw_no': gameweek_no,
             }
             return render(request, 'players/fixtures.html', context)
         else:
@@ -1573,3 +1602,21 @@ class DreamTeamView(View):
         #             'defender': defender,
         #         }
         #         return render(request, 'players/dreamteam.html', context)
+
+
+class PredictionView(View):
+    def get(self,request, team_id):
+        file = pd.read_csv(r"final_result.csv")
+        predict=[]
+        name=[]
+        position=[]
+        for Predict, Name, Position in zip(file.predict, file.name, file.position):
+            predict.append(Predict)
+            name.append(Name)
+            position.append(Position)
+        mylist=zip(predict,name,position)
+        content = {
+            'team_id': team_id,
+            'mylist':mylist,
+        }
+        return render(request,"players/prediction.html", content)

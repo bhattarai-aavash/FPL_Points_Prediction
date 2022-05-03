@@ -1,9 +1,89 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Fixtures</h1>
-<h3>
-    {% for h,a,r in mylist %}
-        Week-{{r}} {{h}} vs {{a}} 
-        <br>
-    {% endfor %}
-</h3>
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="fixtures-wrapper">
+        <h2>Fixtures</h2>
+
+        <div class="match-week-scroller">
+            <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontally(1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        
+            <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontally(-1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        
+            <div class="gameweeks">
+                <div class="gw-num" id="gw-1">Gameweek 1</div>
+                <div class="gw-num" id="gw-2">Gameweek 2</div>
+                <div class="gw-num" id="gw-3">Gameweek 3</div>
+                <div class="gw-num" id="gw-4">Gameweek 4</div>
+                <div class="gw-num" id="gw-5">Gameweek 5</div>
+                <div class="gw-num" id="gw-6">Gameweek 6</div>
+                <div class="gw-num" id="gw-7">Gameweek 7</div>
+                <div class="gw-num" id="gw-8">Gameweek 8</div>
+                <div class="gw-num" id="gw-9">Gameweek 9</div>
+                <div class="gw-num" id="gw-10">Gameweek 10</div>
+                <div class="gw-num" id="gw-11">Gameweek 11</div>
+                <div class="gw-num" id="gw-12">Gameweek 12</div>
+                <div class="gw-num" id="gw-13">Gameweek 13</div>
+                <div class="gw-num" id="gw-14">Gameweek 14</div>
+                <div class="gw-num" id="gw-15">Gameweek 15</div>
+                <div class="gw-num" id="gw-16">Gameweek 16</div>
+                <div class="gw-num" id="gw-17">Gameweek 17</div>
+                <div class="gw-num" id="gw-18">Gameweek 18</div>
+                <div class="gw-num" id="gw-19">Gameweek 19</div>
+                <div class="gw-num" id="gw-20">Gameweek 20</div>
+                <div class="gw-num" id="gw-21">Gameweek 21</div>
+                <div class="gw-num" id="gw-22">Gameweek 22</div>
+                <div class="gw-num" id="gw-23">Gameweek 23</div>
+                <div class="gw-num" id="gw-24">Gameweek 24</div>
+                <div class="gw-num" id="gw-25">Gameweek 25</div>
+                <div class="gw-num" id="gw-26">Gameweek 26</div>
+                <div class="gw-num" id="gw-27">Gameweek 27</div>
+                <div class="gw-num" id="gw-28">Gameweek 28</div>
+                <div class="gw-num" id="gw-29">Gameweek 29</div>
+                <div class="gw-num" id="gw-30">Gameweek 30</div>
+                <div class="gw-num" id="gw-31">Gameweek 31</div>
+                <div class="gw-num" id="gw-32">Gameweek 32</div>
+                <div class="gw-num" id="gw-33">Gameweek 33</div>
+                <div class="gw-num" id="gw-34">Gameweek 34</div>
+                <div class="gw-num" id="gw-35">Gameweek 35</div>
+                <div class="gw-num" id="gw-36">Gameweek 36</div>
+                <div class="gw-num" id="gw-37">Gameweek 37</div>
+                <div class="gw-num" id="gw-38">Gameweek 38</div>
+            </div>
+        </div>
+        
+        
+        <!-- -------------Aman code---------------------  -->
+
+        <div class="match-week-fixture">
+            <h2>Gameweek <span id="show-gw-no">1</span> </h2>
+
+            
+            <div class="grid-container">
+                {% for h,a,r,d,t in mylist %}
+
+                    {% include 'players/weekFixture.html' %}
+
+                {% endfor %}
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+
 {% endblock content %}
