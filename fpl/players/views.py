@@ -1603,3 +1603,21 @@ class DreamTeamView(View):
         #             'defender': defender,
         #         }
         #         return render(request, 'players/dreamteam.html', context)
+
+
+class PredictionView(View):
+    def get(self, request, team_id):
+        file = pd.read_csv(r"final_result.csv")
+        predict = []
+        name = []
+        position = []
+        for Predict, Name, Position in zip(file.predict, file.name, file.position):
+            predict.append(Predict)
+            name.append(Name)
+            position.append(Position)
+        mylist = zip(predict, name, position)
+        context = {
+            'team_id': team_id,
+            'mylist': mylist,
+        }
+        return render(request, "players/prediction.html", context)

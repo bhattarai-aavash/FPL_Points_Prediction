@@ -9,7 +9,7 @@
     <div class="status-wrapper">
         <div class="user-info">
             <p>
-                Welcome, {{user}}.
+                Welcome, <span class="welcome">{{user}}.</span>
             </p>
         </div>
         <h2 class="status-title">
@@ -82,7 +82,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a class="predictor" href="#">
+                                <a class="predictor" href="{% url 'predict' team_id %}">
                                     <span>Predictor</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </a>

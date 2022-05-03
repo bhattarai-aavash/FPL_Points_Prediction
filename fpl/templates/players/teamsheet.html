@@ -118,6 +118,7 @@
                         <div class="player-box">
                             <div class="player-name">{{gg}}</div>
                             <div class="player-points">{{gg.points}}</div>
+                            <h5 class="bench-position">GK</h5>
                         </div>
                         {% endfor %}
 
@@ -125,6 +126,7 @@
                         <div class="player-box">
                             <div class="player-name">{{dd}}</div>
                             <div class="player-points">{{dd.points}}</div>
+                            <h5 class="bench-position">DEF</h5>
                         </div>
                         {% endfor %}
 
@@ -132,6 +134,7 @@
                         <div class="player-box">
                             <div class="player-name">{{mm}}</div>
                             <div class="player-points">{{mm.points}}</div>
+                            <h5 class="bench-position">MID</h5>
                         </div>
                         {% endfor %}
 
@@ -139,6 +142,7 @@
                         <div class="player-box">
                             <div class="player-name">{{ff}}</div>
                             <div class="player-points">{{ff.points}}</div>
+                            <h5 class="bench-position">FWD</h5>
                         </div>
                         {% endfor %}
                     </div>
@@ -146,147 +150,7 @@
 
             </section>
 
-            <section class="fixtures current-fixtures">
-                <div class="heading">
-                    <img src="{% static 'players/images/lion_logo.png' %}" alt="logo" height="80px" width="100px">
-                    <h1>Live Fixtures</h1>
-                </div>
-
-                <!-- <div class="prev-next">
-                    <button class="btn prev-btn">
-                        Previous
-                    </button>
-
-                    <div>
-                        Gameweek
-                        <span class="next-time">24 - Wed 18 Feb 00:00</span>
-                    </div>
-
-                    <button class="btn next-btn">
-                        Next
-                    </button>
-                </div> -->
-
-                <!-- <p style="text-align:center;">All times are shown in your local time.</p> -->
-
-                <div class="match-week-fixture-sm">
-                    <div class="gameweek">
-                        Gameweek <span class="next-gw-no">1</span>
-                    </div>
-
-                    <div class="match-week-info">
-                        <div class="match-datetime">
-                            Friday 20 February
-                        </div>
-                        <div class="match-card-container-sm">
-                            <div class="match-card-sm">
-                                <div class="teams">
-                                    <div class="team-1">
-                                        <div class="logo">
-                                            <img src="{% static 'players/images/logos/manchester-united-fc-logo.png' %}"
-                                                alt="">
-                                        </div>
-                                        <div class="team-name">
-                                            Manchester United
-                                        </div>
-                                    </div>
-                                    <div class="team-2">
-                                        <div class="logo">
-                                            <img src="{% static 'players/images/logos/newcastle-united-fc-logo.png' %}"
-                                                alt="">
-                                        </div>
-                                        <div class="team-name">
-                                            New Castle
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="time-score score">
-                                    <div class="score-1">2</div>
-                                    <div class="score-2">1</div>
-                                </div>
-
-                            </div>
-                            <div class="match-card-sm">
-                                <div class="teams">
-                                    <div class="team-1">
-                                        <div class="logo">M</div>
-                                        <div class="team-name">
-                                            Manchester City
-                                        </div>
-                                    </div>
-                                    <div class="team-2">
-                                        <div class="logo">N</div>
-                                        <div class="team-name">
-                                            Burnley
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="time-score score">
-                                    <div class="score-1">5</div>
-                                    <div class="score-2">0</div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="match-week-info">
-                        <div class="match-datetime">
-                            Friday 20 February
-                        </div>
-                        <div class="match-card-container-sm">
-                            <div class="match-card-sm">
-                                <div class="teams">
-                                    <div class="team-1">
-                                        <div class="logo">M</div>
-                                        <div class="team-name">
-                                            Watford
-                                        </div>
-                                    </div>
-                                    <div class="team-2">
-                                        <div class="logo">N</div>
-                                        <div class="team-name">
-                                            Norwich
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="time-score score">
-                                    <div class="score-1">1</div>
-                                    <div class="score-2">1</div>
-                                </div>
-
-                            </div>
-                            <div class="match-card-sm">
-                                <div class="teams">
-                                    <div class="team-1">
-                                        <div class="logo">M</div>
-                                        <div class="team-name">
-                                            Manchester City
-                                        </div>
-                                    </div>
-                                    <div class="team-2">
-                                        <div class="logo">N</div>
-                                        <div class="team-name">
-                                            Burnley
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="time-score score">
-                                    <div class="score-1">2</div>
-                                    <div class="score-2">3</div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </section>
+            
 
 
         </div>
@@ -379,30 +243,10 @@
             </div>
 
             <div class="info-card">
-                <h3>Points/Rankings</h3>
+                <h3>Team Statistics</h3>
                 <ul>
-                    <li class="info-card-item">
-                        Overall Points: <span>1222</span>
-                    </li>
-                    <li class="info-card-item">
-                        Overall Rank: <span>1,22,452</span>
-                    </li>
-                    <li class="info-card-item">
-                        Total Players: <span>111222</span>
-                    </li>
                     <li class="info-card-item">
                         Gameweek Points: <span>{{total}}</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3>Transfers and Finance</h3>
-                <ul>
-                    <li class="info-card-item">
-                        Gameweek transfers : <span>0</span>
-                    </li>
-                    <li class="info-card-item">
-                        Total transfers: <span>1</span>
                     </li>
                     <li class="info-card-item">
                         Squad Value: <span>&pound;{{total_price}}m</span>

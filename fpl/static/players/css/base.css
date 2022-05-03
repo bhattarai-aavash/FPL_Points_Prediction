@@ -227,7 +227,9 @@ ul li {
 .status-wrapper .status-title {
   margin: 1.3rem 0;
 }
-
+.welcome{
+  color: var(--bg-accent2);
+}
 .game-table-show {
   width: 100%;
   text-align: center;
@@ -311,10 +313,10 @@ ul li {
   color: white;
   display: flex;
   justify-content: space-between;
-  width: 8rem;
+  width: 9rem;
   background-color: rgb(55, 0, 60);
   padding: 0.75rem 1rem;
-  margin: 0 1.35rem;
+  margin: 0 0.95rem;
   border-radius: 5px;
 }
 .predictor-status {

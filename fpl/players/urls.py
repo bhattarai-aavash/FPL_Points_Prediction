@@ -19,4 +19,5 @@ urlpatterns = [
     path('dreamteam/<int:team_id>',
          views.DreamTeamView.as_view(), name="dreamteam"),
     path('league/<int:team_id>', views.LeagueView.as_view(), name='league'),
+    path('predict/<int:team_id>', views.PredictionView.as_view(), name='predict'),
 ]

@@ -62,7 +62,7 @@ a {
   font-size: 1rem;
   color: var(--bg-accent2);
   background-color: #000;
-  padding: 1rem;
+  padding: 0.9rem;
   border-radius: 5px;
 }
 .top ul li a:hover {
