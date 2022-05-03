@@ -50,13 +50,54 @@ class StatusView(View):
 
 class FixturesView(View):
     def get(self, request):
+        file = pd.read_csv(
+            r"epl-2021-GMTStandardTime.csv")
+        home = []
+        away = []
+        roundn = []
+        gameday = []
+        gametime = []
+        # homelogo = []
+        # awaylogo = []
+        for Home, Away, Round, Gameday, Gametime in zip(
+            file.Home_Team,
+            file.Away_Team,
+            file.RoundNumber,
+            file.Date,
+            file.GameTime,
+            # file.Home_Logo,
+            # file.Away_Logo
+        ):
+            home.append(Home)
+            away.append(Away)
+            roundn.append(Round)
+            gameday.append(Gameday)
+            gametime.append(Gametime)
+            # homelogo.append(Homelogo)
+            # awaylogo.append(Awaylogo)
+        # fixtures = []
+        # gamedate = []
+        # gametime = []
+        # for games in gameday:
+        #     # print(games)
+        #     fixtures = games.split(' ')
+        #     # print(fixtures)
+        # print(gametime)
+
+        # print(home, '\n'*2)
+        # print(away)
+        # mylist = zip(home, away, roundn, gameday)
+        mylist = zip(home, away, roundn, gameday, gametime)
         if request.user.is_authenticated:
             n_user = request.user
             team = Team.objects.filter(user__username=n_user)
             for t in team:
                 team_id = t.id
+            gameweek_no = 1
             context = {
                 'team_id': team_id,
+                'mylist': mylist,
+                'gw_no': gameweek_no,
             }
             return render(request, 'players/fixtures.html', context)
         else:
@@ -251,16 +292,17 @@ class IndexView(View):
                 return False
 
         def club_counter(a):
+            counter = 1
             for x in a:
                 count = 0
                 for y in a:
                     if x == y:
                         count += 1
-                # print(count)
                 if count > 3:
-                    return False
-                else:
-                    return True
+                    counter = 0
+            print(counter)
+            return counter
+
         if f1:
             # ff1 = team.players.filter(type="FWD")[0]
             ff2 = team.players.filter(type="FWD")[1]
@@ -895,6 +937,7 @@ class IndexView(View):
             # ex_m = team.subs.filter(type="MID")[0]
             ex_d = team.subs.filter(type="DEF")[0]
             ex_g = team.subs.filter(type="GK")[0]
+            print(ff1)
             total_price = ff1.price+ff2.price+ex_f.price+dd1.price + dd2.price + \
                 dd3.price+dd4.price+ex_d.price + mm1.price + \
                 mm2.price+mm3.price+mm4.price + \
@@ -1107,75 +1150,121 @@ class RegisterView(View):
             list.append(g1)
             list.append(g2)
             total = 0
+
+            def club_counter(a):
+                counter = 1
+                for x in a:
+                    count = 0
+                    for y in a:
+                        if x == y:
+                            count += 1
+                    if count > 3:
+                        counter = 0
+                print(counter)
+                return counter
+
             for l in list:
                 for p in l:
                     total += p.price
             remain = 100-total
+            clubs = [f1[0].club, f2[0].club, f3[0].club, d1[0].club, d2[0].club, d3[0].club, d4[0].club,
+                     d5[0].club, m1[0].club, m2[0].club, m3[0].club, m4[0].club, m5[0].club, g1[0].club, g2[0].club]
             new_user = User(username=username, email=email)
             new_user.set_password(password)
-            if f1 == f2 == f3:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif d1 == d2 == d3 == d4 == d5:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif m1 == m2 == m3 == m4 == m5:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif g1 == g2:
-                response = "You cannot choose same player multiple times"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
-            elif total > 100:
-                response = "Choose Players within the budget of 100"
-                context = {
-                    'response': response,
-                    'remain': remain,
-                }
-                return render(request, 'players/register.html', context)
+            if club_counter(clubs):
+                if f1[0] == f2[0] or f1[0] == f3[0] or f2[0] == f3[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif d1[0] == d2[0] or d1[0] == d3[0] or d1[0] == d4[0] or d1[0] == d5[0] or d2[0] == d3[0] or d2[0] == d4[0] or d2[0] == d5[0] or d3[0] == d4[0] or d3[0] == d5[0] or d4[0] == d5[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif m1[0] == m2[0] or m1[0] == m3[0] or m1[0] == m4[0] or m1[0] == m5[0] or m2[0] == m3[0] or m2[0] == m4[0] or m2[0] == m5[0] or m3[0] == m4[0] or m3[0] == m5[0] or m4[0] == m5[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif g1[0] == g2[0]:
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    response = "You cannot choose same player multiple times"
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                elif total > 100:
+                    response = "Choose Players within the budget of 100"
+                    form = RegisterForm()
+                    player = Players.objects.all()
+                    context = {
+                        'form': form,
+                        'player': player,
+                        'response': response,
+                        'remain': remain,
+                    }
+                    return render(request, 'register.html', context)
+                else:
+                    new_user.save()
+                    team = Team(name=team_name, total_points=0, user=new_user)
+                    team.save()
+
+                    def create_p(pp):
+                        for p in pp:
+                            team.players.add(p)
+
+                    def create_e(ee):
+                        for e in ee:
+                            team.subs.add(e)
+                    create_p(f1)
+                    create_p(f2)
+                    create_p(d1)
+                    create_p(d2)
+                    create_p(d3)
+                    create_p(d4)
+                    create_p(m1)
+                    create_p(m2)
+                    create_p(m3)
+                    create_p(m4)
+                    create_p(g1)
+                    create_e(f3)
+                    create_e(d5)
+                    create_e(m5)
+                    create_e(g2)
+                    return HttpResponseRedirect(reverse('login'))
             else:
-                new_user.save()
-                team = Team(name=team_name, total_points=0, user=new_user)
-                team.save()
-
-                def create_p(pp):
-                    for p in pp:
-                        team.players.add(p)
-
-                def create_e(ee):
-                    for e in ee:
-                        team.subs.add(e)
-                create_p(f1)
-                create_p(f2)
-                create_p(d1)
-                create_p(d2)
-                create_p(d3)
-                create_p(d4)
-                create_p(m1)
-                create_p(m2)
-                create_p(m3)
-                create_p(m4)
-                create_p(g1)
-                create_e(f3)
-                create_e(d5)
-                create_e(m5)
-                create_e(g2)
-            return HttpResponseRedirect(reverse('login'))
+                response = 'You cannot choose players more than 3 from same teams.'
+                form = RegisterForm()
+                player = Players.objects.all()
+                context = {
+                    'form': form,
+                    'player': player,
+                    'response': response,
+                }
+                return render(request, 'register.html', context)
         return HttpResponse("Form not filled properly")
 
 
@@ -1186,201 +1275,207 @@ class TeamView(View):
         total_price = 0
         # team = Team.objects.filter(user__username=n_user)
         team = Team.objects.get(pk=team_id)
-        players = team.players.all()
-        print(len(players))
-        extras = team.subs.all()
-        # print(team.players.filter(type='FWD'))
-        # print(team_id)
-        # print(players)
-        forwards = []
-        defenders = []
-        midfields = []
-        goalkeeps = []
-        extra_f = []
-        extra_d = []
-        extra_m = []
-        extra_g = []
-        for player in players:
-            if player.type == 'FWD':
-                if player.minutes > 0:
-                    forwards.append(player)
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'FWD':
-                            if e.minutes > 0 and (e not in forwards):
-                                print(e)
-                                forwards.append(e)
-                                if player not in extra_f:
-                                    extra_f.append(player)
-                                    print(player)
-                            else:
-                                print(player)
-                                forwards.append(player)
-                                if (e not in extra_f) and (e not in forwards):
-                                    extra_f.append(e)
+        teams = Team.objects.all()
+        if team.user == request.user:
+            players = team.players.all()
+            print(len(players))
+            extras = team.subs.all()
+            print(len(extras))
+            # print(team.players.filter(type='FWD'))
+            # print(team_id)
+            # print(players)
+            forwards = []
+            defenders = []
+            midfields = []
+            goalkeeps = []
+            extra_f = []
+            extra_d = []
+            extra_m = []
+            extra_g = []
+            for player in players:
+                if player.type == 'FWD':
+                    if player.minutes > 0:
+                        forwards.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'FWD':
+                                if e.minutes > 0 and (e not in forwards):
                                     print(e)
-            if player.type == 'DEF':
-                if player.minutes > 0:
-                    defenders.append(player)
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'DEF':
-                            if e.minutes > 0 and (e not in defenders):
-                                print(e)
-                                defenders.append(e)
-                                if player not in extra_d:
-                                    extra_d.append(player)
+                                    forwards.append(e)
+                                    if player not in extra_f:
+                                        extra_f.append(player)
+                                        print(player)
+                                else:
                                     print(player)
-                            else:
-                                print(player)
-                                defenders.append(player)
-                                if (e not in extra_d) and (e not in defenders):
-                                    extra_d.append(e)
+                                    forwards.append(player)
+                                    if (e not in extra_f) and (e not in forwards):
+                                        extra_f.append(e)
+                                        print(e)
+                if player.type == 'DEF':
+                    if player.minutes > 0:
+                        defenders.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'DEF':
+                                if e.minutes > 0 and (e not in defenders):
                                     print(e)
-                                # if player not in (d.name for d in defenders):
-                                #     print(player)
-                                #     defenders.append(player)
-            if player.type == 'MID':
-                if player.minutes > 0:
-                    midfields.append(player)
-                    print(player)
-                else:
-                    for e in extras:
-                        if e.type == 'MID':
-                            if e.minutes > 0 and (e not in midfields):
-                                print(e)
-                                midfields.append(e)
-                                if player not in extra_m:
-                                    extra_m.append(player)
+                                    defenders.append(e)
+                                    if player not in extra_d:
+                                        extra_d.append(player)
+                                        print(player)
+                                else:
                                     print(player)
-                            else:
-                                print(player)
-                                midfields.append(player)
-                                if (e not in extra_m) and (e not in midfields):
-                                    extra_m.append(e)
+                                    defenders.append(player)
+                                    if (e not in extra_d) and (e not in defenders):
+                                        extra_d.append(e)
+                                        print(e)
+                                    # if player not in (d.name for d in defenders):
+                                    #     print(player)
+                                    #     defenders.append(player)
+                if player.type == 'MID':
+                    if player.minutes > 0:
+                        midfields.append(player)
+                        print(player)
+                    else:
+                        for e in extras:
+                            if e.type == 'MID':
+                                if e.minutes > 0 and (e not in midfields):
                                     print(e)
-            if player.type == 'GK':
-                if player.minutes > 0:
-                    goalkeeps.append(player)
-                    print(player)
-                    for e in extras:
-                        if e.type == 'GK':
-                            extra_g.append(e)
-                            print(e)
-                else:
-                    for e in extras:
-                        if e.type == 'GK':
-                            if e.minutes > 0 and (e not in goalkeeps):
-                                goalkeeps.append(e)
-                                print(e)
-                                extra_g.append(player)
-                                print(player)
-                            else:
-                                goalkeeps.append(player)
+                                    midfields.append(e)
+                                    if player not in extra_m:
+                                        extra_m.append(player)
+                                        print(player)
+                                else:
+                                    print(player)
+                                    midfields.append(player)
+                                    if (e not in extra_m) and (e not in midfields):
+                                        extra_m.append(e)
+                                        print(e)
+                if player.type == 'GK':
+                    if player.minutes > 0:
+                        goalkeeps.append(player)
+                        print(player)
+                        for e in extras:
+                            if e.type == 'GK':
                                 extra_g.append(e)
-                    # for e in extras:
-                    #     if e.type == 'GK':
-                    #         if e.minutes > 0 and (e not in goalkeeps):
-                    #             print(e)
-                    #             goalkeeps.append(e)
-                    #             if player not in extra_g:
-                    #                 extra_g.append(player)
-                    #         else:
-                    #             print(player)
-                    #             goalkeeps.append(player)
-                    #             if (e not in extra_g) and (e not in goalkeeps):
-                    #                 extra_g.append(e)
-        for e in extras:
-            if e.type == 'FWD':
-                if (e not in forwards) and (e not in extra_f):
-                    extra_f.append(e)
-                    print(e)
-            if e.type == 'DEF':
-                if (e not in defenders) and (e not in extra_d):
-                    extra_d.append(e)
-                    print(e)
-            if e.type == 'MID':
-                if (e not in midfields) and (e not in extra_m):
-                    extra_m.append(e)
-                    print(e)
-            if e.type == 'GK':
-                if (e not in goalkeeps) and (e not in extra_g):
-                    extra_g.append(e)
-                    print(e)
-        print(forwards)
-        print(midfields)
-        print(defenders)
-        print(goalkeeps)
-        print(extra_f)
-        print(extra_d)
-        print(extra_m)
-        print(extra_g)
-        for ff in extra_f:
-            print(ff)
-        new_set = []
-        new_set.append(forwards)
-        new_set.append(midfields)
-        new_set.append(defenders)
-        new_set.append(goalkeeps)
-        print(new_set)
-        # for extra in extras:
-        #     if extra.type == 'FWD':
-        #         extra_f.append(extra)
-        #     if extra.type == 'DEF':
-        #         extra_d.append(extra)
-        #     if extra.type == 'MID':
-        #         extra_m.append(extra)
-        #     if extra.type == 'GK':
-        #         extra_g.append(extra)
-        cap = team.captain
-        for player in players:
-            total_price += player.price
-        for extra in extras:
-            total_price += extra.price
-        for n in new_set:
-            for p in n:
-                if p == cap:
-                    total_point += p.points*2
-                else:
-                    total_point += p.points
-        team.week_point = total_point
-        team.squad_value = total_price
-        team.save()
-        print(team.week_point)
-        # print(extra_g)
-        # print(forwards)
-        # print(defenders)
-        # print(midfields)
-        # print(goalkeeps)
-        # print(total_point)
-        if cap in players:
+                                print(e)
+                    else:
+                        for e in extras:
+                            if e.type == 'GK':
+                                if e.minutes > 0 and (e not in goalkeeps):
+                                    goalkeeps.append(e)
+                                    print(e)
+                                    extra_g.append(player)
+                                    print(player)
+                                else:
+                                    goalkeeps.append(player)
+                                    extra_g.append(e)
+                        # for e in extras:
+                        #     if e.type == 'GK':
+                        #         if e.minutes > 0 and (e not in goalkeeps):
+                        #             print(e)
+                        #             goalkeeps.append(e)
+                        #             if player not in extra_g:
+                        #                 extra_g.append(player)
+                        #         else:
+                        #             print(player)
+                        #             goalkeeps.append(player)
+                        #             if (e not in extra_g) and (e not in goalkeeps):
+                        #                 extra_g.append(e)
+            for e in extras:
+                if e.type == 'FWD':
+                    if (e not in forwards) and (e not in extra_f):
+                        extra_f.append(e)
+                        print(e)
+                if e.type == 'DEF':
+                    if (e not in defenders) and (e not in extra_d):
+                        extra_d.append(e)
+                        print(e)
+                if e.type == 'MID':
+                    if (e not in midfields) and (e not in extra_m):
+                        extra_m.append(e)
+                        print(e)
+                if e.type == 'GK':
+                    if (e not in goalkeeps) and (e not in extra_g):
+                        extra_g.append(e)
+                        print(e)
+            print(forwards)
+            print(midfields)
+            print(defenders)
+            print(goalkeeps)
+            print(extra_f)
+            print(extra_d)
+            print(extra_m)
+            print(extra_g)
+
+            new_set = []
+            new_set.append(forwards)
+            new_set.append(midfields)
+            new_set.append(defenders)
+            new_set.append(goalkeeps)
+            print(new_set)
+            # for extra in extras:
+            #     if extra.type == 'FWD':
+            #         extra_f.append(extra)
+            #     if extra.type == 'DEF':
+            #         extra_d.append(extra)
+            #     if extra.type == 'MID':
+            #         extra_m.append(extra)
+            #     if extra.type == 'GK':
+            #         extra_g.append(extra)
             cap = team.captain
-        else:
-            cap = None
-        budget = 100-total_price
-        budget = "{:.2f}".format(budget)
-        names = team
-        context = {
-            # 'players': players,
-            'name': names,
-            'team_id': team_id,
-            'total': total_point,
-            # 'extras': extras,
-            'total_price': total_price,
-            'budget': budget,
-            'for': forwards,
-            'mid': midfields,
-            'def': defenders,
-            'gk': goalkeeps,
-            'ex_f': extra_f,
-            'ex_m': extra_m,
-            'ex_d': extra_d,
-            'ex_g': extra_g,
-            'captain': cap,
-        }
-        return render(request, 'players/teamsheet.html', context)
+            for player in players:
+                total_price += player.price
+            for extra in extras:
+                total_price += extra.price
+            for n in new_set:
+                for p in n:
+                    if p == cap:
+                        total_point += p.points*2
+                    else:
+                        total_point += p.points
+            team.week_point = total_point
+            team.squad_value = total_price
+            team.save()
+            print(team.week_point)
+            # print(extra_g)
+            # print(forwards)
+            # print(defenders)
+            # print(midfields)
+            # print(goalkeeps)
+            # print(total_point)
+            if cap in players:
+                cap = team.captain
+            else:
+                cap = None
+            budget = 100-total_price
+            budget = "{:.2f}".format(budget)
+            names = team
+            nteams = len(teams)
+            context = {
+                # 'players': players,
+                'name': names,
+                'team_id': team_id,
+                'total': total_point,
+                # 'extras': extras,
+                'total_price': total_price,
+                'budget': budget,
+                'for': forwards,
+                'mid': midfields,
+                'def': defenders,
+                'gk': goalkeeps,
+                'ex_f': extra_f,
+                'ex_m': extra_m,
+                'ex_d': extra_d,
+                'ex_g': extra_g,
+                'captain': cap,
+                'team': team,
+                'teams': nteams,
+            }
+            return render(request, 'players/teamsheet.html', context)
+        return HttpResponseRedirect('/players')
 
 
 class PickTeamView(View):
@@ -1390,12 +1485,15 @@ class PickTeamView(View):
         r_players = team.players.all()
         r_extras = team.subs.all()
         c = team.captain
+        teams = Team.objects.all()
+        nteam = len(teams)
         context = {
             'players': r_players,
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
             'team': team,
+            'teams': nteam,
         }
         return render(request, 'players/pickteam.html', context)
 
@@ -1406,15 +1504,18 @@ class PickTeamView(View):
         for cc in cap:
             team.captain = cc
         team.save()
+        teams = Team.objects.all()
         r_players = team.players.all()
         r_extras = team.subs.all()
         c = team.captain
+        nteam = len(teams)
         context = {
             'players': r_players,
             'extras': r_extras,
             'team_id': team_id,
             'captain': c,
             'team': team,
+            'teams': nteam,
         }
         print(cap)
         return render(request, 'players/pickteam.html', context)
@@ -1424,7 +1525,6 @@ class LeagueView(View):
     def get(self, request, team_id):
         teams = Team.objects.all()
         my_team = Team.objects.get(id=team_id)
-        # print('\n'*3, my_team, '\n'*3)
         lists = []
         # print(lists)
         #ordered_authors = Author.objects.order_by('-score', 'last_name')[:30]
@@ -1443,7 +1543,7 @@ class HelpView(View):
         context = {
             'team_id': team_id,
         }
-        return render(request, 'help.html', context)
+        return render(request, 'players/help.html', context)
 
 
 class DreamTeamView(View):
