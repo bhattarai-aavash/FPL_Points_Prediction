@@ -1,0 +1,707 @@
+,predict,name,position
+0,1.06,Aaron Connolly,FWD
+1,2.65,Aaron Cresswell,DEF
+2,1.38,Aaron Lennon,MID
+3,0.39,Aaron Ramsey,MID
+4,2.57,Aaron Wan-Bissaka,DEF
+5,2.01,Abdoulaye Doucouré,MID
+6,1.44,Adam Armstrong,FWD
+7,0.4,Adam Forshaw,MID
+8,1.93,Adam Idah,FWD
+9,2.03,Adam Lallana,MID
+10,0.32,Adam Masina,DEF
+11,2.71,Adam Webster,DEF
+12,1.3,Adama Traoré,MID
+13,0.23,Adedapo Awokoya-Mebude,FWD
+14,3.24,Ademola Lookman,MID
+15,0.56,Adrián San Miguel del Castillo,GK
+16,0.27,Ajibola Alese,DEF
+17,2.01,Alex Iwobi,MID
+18,0.34,Alex Kral,MID
+19,0.79,Alex McCarthy,GK
+20,1.99,Alex Nicolao Telles,DEF
+21,2.73,Alex Oxlade-Chamberlain,MID
+22,2.77,Alexis Mac Allister,MID
+23,1.14,Alireza Jahanbakhsh,MID
+24,2.5586363636363636,Alisson Ramses Becker,GK
+25,2.02,Allan Marques Loureiro,MID
+26,4.4,Allan Saint-Maximin,MID
+27,0.74,Alphonse Areola,GK
+28,0.7,Amad Diallo,MID
+29,0.53,Andi Zeqiri,FWD
+30,0.45,Andre Gray,FWD
+31,0.55,Andreas Pereira,MID
+32,0.5,Andreas Söndergaard,GK
+33,0.63,Andrew Omobamidele,DEF
+34,4.18,Andrew Robertson,DEF
+35,1.05,Andriy Yarmolenko,MID
+36,1.68,Andros Townsend,MID
+37,1.79,André Filipe Tavares Gomes,MID
+38,0.26,Andy Lonergan,GK
+39,0.69,Angelo Ogbonna,DEF
+40,2.45,Angus Gunn,GK
+41,1.84,Anthony Elanga,MID
+42,2.18,Anthony Gordon,MID
+43,2.36,Anthony Martial,FWD
+44,2.49,Anwar El Ghazi,MID
+45,0.23,Archie Gray,MID
+46,3.34,Armando Broja,FWD
+47,0.18,Armstrong Oko-Flex,MID
+48,1.61,Arthur Masuaku,DEF
+49,1.1586363636363637,Ashley Barnes,FWD
+50,0.73,Ashley Fletcher,FWD
+51,2.17,Ashley Westwood,MID
+52,1.23,Ashley Young,DEF
+53,0.46,Asmir Begović,GK
+54,1.04,Axel Tuanzebe,DEF
+55,3.9,Aymeric Laporte,DEF
+56,0.29,Ayotomiwa Dele-Bashiru,MID
+57,1.19,Ayoze Pérez,MID
+58,0.63,Bailey Peacock-Farrell,GK
+59,0.61,Bali Mumba,DEF
+60,2.0786363636363636,Bamidele Alli,MID
+61,1.42,Ben Davies,DEF
+62,2.64,Ben Foster,GK
+63,1.61,Ben Gibson,DEF
+64,1.92,Ben Godfrey,DEF
+65,0.66,Ben Johnson,DEF
+66,2.2586363636363638,Ben Mee,DEF
+67,0.22,Ben Nelson,DEF
+68,0.28,Ben Wilmot,DEF
+69,0.27,Ben Woodburn,MID
+70,0.37,Benjamin Chrisene,MID
+71,1.33,Benjamin Mendy,DEF
+72,0.71,Bernard Anício Caldeira Duarte,MID
+73,0.61,Bernardo Fernandes Da Silva Junior,DEF
+74,3.49,Bernardo Mota Veiga de Carvalho e Silva,MID
+75,2.83,Bertrand Traoré,MID
+76,3.21,Billy Gilmour,MID
+77,1.07,Björn Engels,DEF
+78,0.67,Bobby Thomas,DEF
+79,1.11,Boubakary Soumaré,MID
+80,0.39,Brandon Austin,GK
+81,1.5,Brandon Williams,DEF
+82,0.21,Bruno André Cavaco Jordão,MID
+83,0.87,Bruno Guimarães Rodriguez Moura,MID
+84,5.27,Bruno Miguel Borges Fernandes,MID
+85,0.69,Bryan Gil Salvatierra,MID
+86,2.06,Bryan Mbeumo,MID
+87,2.25,Callum Wilson,FWD
+88,2.15,Calum Chambers,DEF
+89,0.21,Cameron Archer,FWD
+90,1.01,Caoimhin Kelleher,GK
+91,0.83,Carney Chukwuemeka,MID
+92,0.75,Cenk Tosun,FWD
+93,0.46,Charlie Cresswell,DEF
+94,0.39,Charlie Goode,DEF
+95,1.31,Charlie Taylor,DEF
+96,0.25,Charlie Whitaker,MID
+97,3.04,Che Adams,FWD
+98,0.81,Cheikhou Kouyaté,MID
+99,0.55,Chem Campbell,MID
+100,2.1386363636363637,Chris Wood,FWD
+101,2.57,Christian Benteke,FWD
+102,0.85,Christian Eriksen,MID
+103,0.5,Christian Kabasele,DEF
+104,0.32,Christian Marques,DEF
+105,2.2,Christian Nørgaard,MID
+106,0.51,Christoph Zimmermann,DEF
+107,0.7,Christos Tzolis,MID
+108,0.52,Ciaran Clark,DEF
+109,0.4,Cieran Slicker,GK
+110,0.26,Cody Drameh,DEF
+111,0.37,Cole Palmer,MID
+112,1.4086363636363637,Connor Roberts,DEF
+113,0.35,Conor Bradley,DEF
+114,3.54,Conor Coady,DEF
+115,0.23,Conor Coventry,MID
+116,3.19,Conor Gallagher,MID
+117,1.54,Conor Hourihane,MID
+118,0.4,Conrad Egan-Riley,DEF
+119,2.38,Craig Cathcart,DEF
+120,2.71,Craig Dawson,DEF
+121,2.8086363636363636,Cristian Romero,DEF
+122,4.79,Cristiano Ronaldo dos Santos Aveiro,FWD
+123,0.23,Crysencio Summerville,MID
+124,1.51,Curtis Jones,MID
+125,0.65,Dale Stephens,MID
+126,2.3325,Dan Burn,DEF
+127,0.36,Dan Gosling,MID
+128,0.39,Dane Scarlett,FWD
+129,2.03,Daniel Amartey,DEF
+130,1.27,Daniel Bachmann,GK
+131,2.35,Daniel Castelo Podence,MID
+132,4.2,Daniel James,MID
+133,0.39,Daniel N'Lundulu,FWD
+134,2.03,Danny Ings,FWD
+135,0.49,Danny Rose,DEF
+136,0.79,Danny Ward,GK
+137,1.79,Danny Welbeck,FWD
+138,0.42,Darren Randolph,GK
+139,2.58,David Raya Martin,GK
+140,3.45,David de Gea,GK
+141,2.231136363636364,Davinson Sánchez,DEF
+142,0.61,Davy Pröpper,MID
+143,1.27,Dean Henderson,GK
+144,2.54,Declan Rice,MID
+145,1.18,Dejan Kulusevski,MID
+146,2.06,Demarai Gray,MID
+147,0.74,Dennis Praet,MID
+148,2.68,Diego Llorente,DEF
+149,0.36,Dilan Markanday,MID
+150,0.31,Dimitris Giannoulis,DEF
+151,4.51,Diogo Jota,MID
+152,0.23,Dion Sanderson,DEF
+153,0.92,Divock Origi,FWD
+154,0.31,Domingos Quina,MID
+155,1.98,Dominic Calvert-Lewin,FWD
+156,0.31,Dominic Thompson,DEF
+157,2.66,Donny van de Beek,MID
+158,2.06,Douglas Luiz Soares de Paulo,MID
+159,0.89,Dwight Gayle,FWD
+160,1.43,Dwight McNeil,MID
+161,0.27,Dynel Simeu,DEF
+162,1.89,Eberechi Eze,MID
+163,0.34,Ed Turns,DEF
+164,3.23,Ederson Santana de Moraes,GK
+165,2.66,Edinson Cavani,FWD
+166,2.08,Edo Kayembe,MID
+167,0.24,Eldin Jakupovic,GK
+168,0.66,Ellery Balcombe,GK
+169,0.22,Elliot Anderson,MID
+170,0.58,Ellis Simms,FWD
+171,2.6025,Emerson Aparecido Leite de Souza Junior,DEF
+172,0.48,Emil Krafth,DEF
+173,2.9686363636363637,Emiliano Buendía Stati,MID
+174,2.53,Emiliano Martínez,GK
+175,4.0725,Emmanuel Dennis,FWD
+176,1.47,Enock Mwepu,MID
+177,1.16,Eric Bailly,DEF
+178,1.72,Eric Dier,DEF
+179,0.78,Erik Lamela,MID
+180,1.9986363636363638,Erik Pieters,DEF
+181,2.67,Ethan Pinnock,DEF
+182,0.35,Evan Ferguson,FWD
+183,2.24,Ezri Konsa Ngoyo,DEF
+184,0.76,Fabian Delph,MID
+185,1.76,Fabian Schär,DEF
+186,2.54,Fabio Henrique Tavares,MID
+187,1.55,Fabio Silva,FWD
+188,0.24,Federico Fernández,DEF
+189,2.27,Fernando Luiz Rosa,DEF
+190,1.59,Fernando Marçal,DEF
+191,1.68,Ferran Torres,MID
+192,0.23,Filip Marschall,GK
+193,0.56,Finley Stevens,DEF
+194,0.5,Florin Andone,FWD
+195,0.59,Francisco Casilla Cortés,GK
+196,1.59,Francisco Femenía Far,DEF
+197,1.48,Francisco Jorge Tomás Oliveira,MID
+198,1.99,Francisco Machado Mota de Castro Trincão,MID
+199,0.33,Francisco Sierralta,DEF
+200,1.31,Frank Onyeka,MID
+201,2.76,Fraser Forster,GK
+202,0.51,Freddie Woodman,GK
+203,1.92,Frederico Rodrigues de Paula Santos,MID
+204,0.36,Frederik Alves,DEF
+205,0.85,Frédéric Guilbert,DEF
+206,2.62,Gabriel Fernando de Jesus,FWD
+207,1.21,Giovani Lo Celso,MID
+208,1.66,Grant Hanley,DEF
+209,1.39,Gylfi Sigurdsson,MID
+210,0.9,Halil Dervişoğlu,FWD
+211,2.05,Hamza Choudhury,MID
+212,0.7,Hannibal Mejbri,MID
+213,0.28,Harrison Ashby,DEF
+214,4.6,Harry Kane,FWD
+215,0.35,Harry Lewis,GK
+216,2.59,Harry Maguire,DEF
+217,0.26,Harry Tyrer,GK
+218,2.1186363636363637,Harry Winks,MID
+219,2.93,Harvey Barnes,MID
+220,1.15,Harvey Elliott,MID
+221,0.31,Harvey White,MID
+222,1.69,Hassane Kamara,DEF
+223,0.38,Haydon Roberts,DEF
+224,1.43,Hee-Chan Hwang,FWD
+225,5.23,Heung-Min Son,MID
+226,0.17,Hugo Bueno,DEF
+227,2.94,Hugo Lloris,GK
+228,1.31,Héctor Junior Firpo Adames,DEF
+229,0.88,Hélder Wander Sousa de Azevedo e Costa,MID
+230,0.58,Ian Carlo Poveda-Ocampo,MID
+231,1.59,Ibrahima Diallo,MID
+232,1.97,Ibrahima Konaté,DEF
+233,3.62,Ilkay Gündogan,MID
+234,3.64,Illan Meslier,GK
+235,1.4,Imrân Louza,MID
+236,0.46,Isaac Hayden,MID
+237,0.55,Isaac Success Ajayi,FWD
+238,1.31,Ismaila Sarr,MID
+239,3.21,Issa Diop,DEF
+240,3.71,Ivan Toney,FWD
+241,0.87,Jack Butland,GK
+242,0.81,Jack Cork,MID
+243,2.87,Jack Grealish,MID
+244,3.17,Jack Harrison,MID
+245,0.23,Jack Jenkins,MID
+246,0.44,Jack Stephens,DEF
+247,1.05,Jacob Murphy,MID
+248,3.358636363636364,Jacob Ramsey,MID
+249,0.64,Jacob Sørensen,DEF
+250,0.49,Jaden Philogene-Bidace,MID
+251,5.03,Jadon Sancho,MID
+252,0.56,Jairo Riedewald,MID
+253,1.98,Jakub Moder,MID
+254,1.69,Jamaal Lascelles,DEF
+255,0.46,Jamal Baptiste,DEF
+256,0.44,Jamal Lewis,DEF
+257,1.58,James Justin,DEF
+258,3.21,James Maddison,MID
+259,0.9886363636363636,James McArthur,MID
+260,0.34,James McAtee,MID
+261,0.85,James Milner,MID
+262,0.23,James Morris,DEF
+263,1.7,James Rodríguez,MID
+264,0.36,James Storer,GK
+265,2.128636363636364,James Tarkowski,DEF
+266,0.42,James Tomkins,DEF
+267,2.81,James Ward-Prowse,MID
+268,0.57,Jamie Shackleton,MID
+269,3.69,Jamie Vardy,FWD
+270,3.02,Jan Bednarek,DEF
+271,0.7,Jan Zamburek,MID
+272,2.54,Jannik Vestergaard,DEF
+273,1.39,Japhet Tanganga,DEF
+274,0.36,Jarell Quansah,DEF
+275,0.41,Jarosław Jach,DEF
+276,1.78,Jarrad Branthwaite,DEF
+277,3.45,Jarrod Bowen,MID
+278,0.57,Jason Steele,GK
+279,0.6586363636363636,Javier Manquillo,DEF
+280,1.8586363636363636,Jay Rodriguez,FWD
+281,0.26,Jean-Philippe Gbamin,MID
+282,2.6386363636363637,Jean-Philippe Mateta,FWD
+283,0.76,Jed Steer,GK
+284,0.54,Jeff Hendrick,MID
+285,1.74,Jeffrey Schlupp,MID
+286,0.91,Jeremy Ngakia,DEF
+287,0.37,Jeremy Sarmiento,MID
+288,2.36,Jesse Lingard,MID
+289,0.29,Jesurun Rak-Sakyi,MID
+290,2.56,Joachim Andersen,DEF
+291,1.18,Joe Gelhardt,FWD
+292,0.52,Joe Hart,GK
+293,0.54,Joe Rodon,DEF
+294,0.14,Joe White,MID
+295,2.2386363636363638,Joel Matip,DEF
+296,2.04,Joel Ward,DEF
+297,1.8186363636363638,Joelinton Cássio Apolinário de Lira,FWD
+298,0.82,Johann Berg Gudmundsson,MID
+299,2.278636363636364,John McGinn,MID
+300,0.36,John Ruddy,GK
+301,2.47,John Stones,DEF
+302,0.17,Jon McCracken,GK
+303,1.0,Jonas Lössl,GK
+304,0.3,Jonathan Castro Otto,DEF
+305,0.22,Jonathan Rowe,MID
+306,0.23,Jonathan Tomkinson,DEF
+307,2.96,Jonjo Shelvey,MID
+308,1.4,Jonjoe Kenny,DEF
+309,1.05,Jonny Evans,DEF
+310,2.11,Jordan Ayew,FWD
+311,1.5986363636363636,Jordan Henderson,MID
+312,0.61,Jordan Hugill,FWD
+313,2.05,Jordan Pickford,GK
+314,0.96,Joseph Gomez,DEF
+315,0.26,Joseph Hungbo,MID
+316,2.01,Joseph Willock,MID
+317,0.63,Josh Benson,MID
+318,2.16,Josh Brownhill,MID
+319,0.23,Josh Feeney,DEF
+320,0.65,Josh Martin,MID
+321,3.15,Joshua King,FWD
+322,2.64,Joshua Sargent,FWD
+323,0.38,Joshua Wilson-Esbrand,DEF
+324,2.8,José Diogo Dalot Teixeira,DEF
+325,4.23,José Malheiro de Sá,GK
+326,2.29,João Filipe Iria Santos Moutinho,MID
+327,3.49,João Pedro Cavaco Cancelo,DEF
+328,2.23,João Pedro Junqueira de Jesus,FWD
+329,0.72,João Virgínia,GK
+330,2.14,Joël Veltman,DEF
+331,1.19,Juan Camilo Hernández Suárez,FWD
+332,0.52,Juan Mata,MID
+333,2.02,Juraj Kucka,MID
+334,1.05,Jürgen Locadia,FWD
+335,0.55,Kaide Gordon,MID
+336,0.22,Kaine Hayden,MID
+337,1.19,Kalvin Phillips,MID
+338,0.26,Kamil Conteh,MID
+339,0.71,Karl Darlow,GK
+340,0.22,Kasey McAteer,MID
+341,2.68,Kasper Schmeichel,GK
+342,0.8,Kayky da Silva Chagas,FWD
+343,1.08,Keinan Davis,FWD
+344,2.69,Kelechi Iheanacho,FWD
+345,0.89,Ken Sema,MID
+346,1.34,Kenny McLean,MID
+347,5.3,Kevin De Bruyne,MID
+348,0.65,Kevin Long,DEF
+349,0.26,Kgaogelo Chauke,MID
+350,0.39,Ki-Jana Hoever,DEF
+351,0.74,Kieran Dowell,MID
+352,3.15,Kieran Trippier,DEF
+353,1.85,Kiernan Dewsbury-Hall,MID
+354,0.4,Kjell Scherpen,GK
+355,1.26,Konstantinos Tsimikas,DEF
+356,1.47,Kortney Hause,DEF
+357,0.16,Kris Moore,DEF
+358,2.86,Kristoffer Ajer,DEF
+359,0.29,Kristoffer Klaesson,GK
+360,2.14,Kurt Zouma,DEF
+361,0.27,Kwadwo Baah,MID
+362,2.95,Kyle Walker,DEF
+363,1.96,Kyle Walker-Peters,DEF
+364,0.27,Lamare Bogarde,DEF
+365,2.01,Leander Dendoncker,MID
+366,2.36,Leandro Trossard,MID
+367,1.0,Leo Fuhr Hjelde,DEF
+368,1.07,Leon Bailey,MID
+369,0.53,Lewis Bate,MID
+370,0.22,Lewis Brunt,MID
+371,0.46,Lewis Dobbin,FWD
+372,1.9,Lewis Dunk,DEF
+373,0.79,Lewis Richardson,FWD
+374,0.91,Liam Cooper,DEF
+375,0.4586363636363636,Liam Delap,FWD
+376,0.26,Liam Gibbs,MID
+377,0.23,Liam McCarron,MID
+378,0.25,Louie Moulden,GK
+379,0.49,Lucas De Bolle,MID
+380,3.1986363636363637,Lucas Digne,DEF
+381,2.3,Lucas Rodrigues Moura da Silva,MID
+382,1.59,Luis Díaz,MID
+383,0.9,Luka Milivojevic,MID
+384,0.83,Lukas Rupp,MID
+385,3.66,Lukasz Fabianski,GK
+386,2.2,Luke Ayling,DEF
+387,1.27,Luke Cundle,MID
+388,0.39,Luke Mbete,DEF
+389,2.98,Luke Shaw,DEF
+390,1.7,Luke Thomas,DEF
+391,1.83,Lyanco Evangelista Silveira Neves Vojnovic,DEF
+392,0.8,Mads Bech Sørensen,DEF
+393,0.62,Mads Bidstrup,MID
+394,3.06,Mads Roerslev Rasmussen,DEF
+395,2.56,Mahmoud Ahmed Ibrahim Hassan,MID
+396,3.45,Manuel Lanzini,MID
+397,1.55,Marc Albrighton,MID
+398,2.64,Marc Cucurella,DEF
+399,1.65,Marc Guéhi,DEF
+400,0.38,Marc Leonard,MID
+401,0.45,Marc Navarro,DEF
+402,0.36,Marcelo de Araújo Pitaluga Filho,GK
+403,0.68,Marco Stiepermann,MID
+404,1.27,Marcus Forss,FWD
+405,5.57,Marcus Rashford,MID
+406,0.51,Mark Gillespie,GK
+407,1.26,Mark Noble,MID
+408,1.6886363636363637,Martin Dubravka,GK
+409,0.82,Martin Kelly,DEF
+410,1.06,Marvelous Nakamba,MID
+411,2.36,Mason Greenwood,MID
+412,1.9986363636363638,Mason Holgate,DEF
+413,1.5,Matej Vydra,FWD
+414,3.01,Mateusz Klich,MID
+415,0.62,Mathew Ryan,GK
+416,1.6,Mathias Jensen,MID
+417,0.27,Mathias Jorgensen,DEF
+418,0.95,Mathias Normann,MID
+419,2.55,Matt Doherty,DEF
+420,0.7,Matt Ritchie,MID
+421,1.94,Matt Targett,DEF
+422,2.2686363636363636,Matthew Cash,DEF
+423,0.22,Matthew Cox,GK
+424,0.39,Matthew Longstaff,MID
+425,1.03,Matthew Lowton,DEF
+426,0.51,Matthew Pollock,DEF
+427,2.31,Max Aarons,DEF
+428,2.64,Max Kilman,DEF
+429,2.108636363636364,Maxwel Cornet,MID
+430,0.25,Maxwell Haygarth,MID
+431,2.16,Mbwana Ally Samatta,FWD
+432,2.44,Michael Keane,DEF
+433,0.8,Michael McGovern,GK
+434,0.72,Michael Obafemi,FWD
+435,2.5586363636363636,Michael Olise,MID
+436,3.68,Michail Antonio,FWD
+437,0.37,Michal Karbownik,DEF
+438,1.27,Miguel Almirón,MID
+439,1.76,Milot Rashica,MID
+440,2.07,Mohamed Elyounoussi,MID
+441,5.79,Mohamed Salah,MID
+442,2.8,Mohammed Salisu,DEF
+443,0.6,Moise Kean,FWD
+444,0.37,Moisés Caicedo,MID
+445,0.26,Morgan Gibbs-White,MID
+446,1.95,Morgan Sanson,MID
+447,0.68,Moussa Djenepo,MID
+448,1.51,Moussa Sissoko,MID
+449,0.25,Myles Peart-Harris,MID
+450,1.39,Naby Keita,MID
+451,0.61,Nampalys Mendy,MID
+452,2.62,Nathan Aké,DEF
+453,0.23,Nathan Broadhead,MID
+454,0.38,Nathan Collins,DEF
+455,0.45,Nathan Ferguson,DEF
+456,0.29,Nathan Patterson,DEF
+457,2.3,Nathan Redmond,MID
+458,0.83,Nathan Tella,MID
+459,0.28,Nathan Young-Coombes,FWD
+460,0.52,Nathaniel Chalobah,MID
+461,0.31,Nathaniel Clyne,DEF
+462,0.54,Nathaniel Phillips,DEF
+463,3.11,Neal Maupay,FWD
+464,0.78,Neco Williams,DEF
+465,1.35,Nemanja Matic,MID
+466,2.628636363636364,Nick Pope,GK
+467,0.23,Nicolas Nkoulou,DEF
+468,0.24,Niels Nkounkou,DEF
+469,2.52,Nikola Vlasic,MID
+470,0.24,Nohan Kenneh,MID
+471,2.55,Nélson Cabral Semedo,DEF
+472,3.41,Odsonne Edouard,FWD
+473,0.33,Oghenekaro Peter Etebo,MID
+474,3.77,Oleksandr Zinchenko,DEF
+475,0.88,Oliver Skipp,MID
+476,2.39,Ollie Watkins,FWD
+477,0.57,Onel Hernández,MID
+478,3.02,Oriol Romeu Vidal,MID
+479,0.27,Owen Beck,DEF
+480,0.33,Owen Dodgson,DEF
+481,0.26,Owen Otasowie,MID
+482,0.22,Ozan Kabak,DEF
+483,0.49,Ozan Tufan,MID
+484,2.47,Pablo Fornals,MID
+485,0.85,Pablo Hernández Domínguez,MID
+486,0.25,Paris Maghoma,MID
+487,2.31,Pascal Groß,MID
+488,2.49,Pascal Struijk,DEF
+489,2.37,Patrick Bamford,FWD
+490,0.53,Patrick Cutrone,FWD
+491,0.75,Patrik Gunnarsson,GK
+492,3.43,Patson Daka,FWD
+493,0.64,Paul Dummett,DEF
+494,2.92,Paul Pogba,MID
+495,0.74,Pedro Lomba Neto,MID
+496,1.26,Pelenda Joshua Dasilva,MID
+497,1.02,Phil Bardsley,DEF
+498,3.54,Phil Foden,MID
+499,0.71,Phil Jones,DEF
+500,0.47,Philip Zinckernagel,MID
+501,4.38,Philippe Coutinho Correia,MID
+502,0.61,Pierluigi Gollini,GK
+503,0.95,Pierre Ekwah,DEF
+504,1.63,Pierre Lees-Melou,MID
+505,2.28,Pierre-Emile Højbjerg,MID
+506,3.06,Pontus Jansson,DEF
+507,1.11,Przemyslaw Placheta,MID
+508,5.83,Raheem Sterling,MID
+509,3.28,Raphael Dias Belloli,MID
+510,2.82,Raphaël Varane,DEF
+511,2.26,Rayan Ait Nouri,DEF
+512,2.77,Raúl Jiménez,FWD
+513,0.3,Reece Hannam,DEF
+514,0.26,Reece Welch,DEF
+515,0.48,Remi Matthews,GK
+516,0.47,Rhys Williams,DEF
+517,2.47,Ricardo Domingos Barbosa Pereira,DEF
+518,1.95,Richarlison de Andrade,FWD
+519,2.17,Rico Henry,DEF
+520,4.53,Riyad Mahrez,MID
+521,0.45,Robert Elliot,GK
+522,0.76,Robert Street,FWD
+523,2.6,Robert Sánchez,GK
+524,4.53,Roberto Firmino,FWD
+525,2.2,Robin Koch,DEF
+526,0.26,Robin Olsen,GK
+527,1.6786363636363637,Rodrigo Bentancur,MID
+528,2.46,Rodrigo Hernandez,MID
+529,3.31,Rodrigo Moreno,FWD
+530,1.99,Romain Perraud,DEF
+531,3.71,Romain Saïss,DEF
+532,0.33,Romeo Lavia,MID
+533,0.58,Rui Pedro dos Santos Patrício,GK
+534,0.47,Ryan Bertrand,DEF
+535,3.31,Ryan Fraser,MID
+536,0.37,Ryan Fredericks,DEF
+537,0.23,Ryan Giles,MID
+538,0.62,Ryan Sessegnon,DEF
+539,3.22,Rúben Diogo da Silva Neves,MID
+540,3.32,Rúben Santos Gato Alves Dias,DEF
+541,4.41,Sadio Mané,MID
+542,1.46,Salomón Rondón,FWD
+543,0.5,Sam Byram,DEF
+544,0.21,Sam Greenwood,FWD
+545,1.37,Saman Ghoddos,MID
+546,1.6,Samir Caetano de Souza Santos,DEF
+547,0.71,Samuel Edozie,MID
+548,0.59,Samuel Kalu,MID
+549,2.81,Saïd Benrahma,MID
+550,0.27,Scott Banks,MID
+551,0.79,Scott Carson,GK
+552,1.88,Scott McTominay,MID
+553,1.71,Seamus Coleman,DEF
+554,0.57,Sean Longstaff,MID
+555,0.64,Serge Aurier,DEF
+556,2.45,Sergi Canós,MID
+557,2.34,Sergio Reguilón,DEF
+558,1.01,Shandon Baptiste,MID
+559,0.94,Shane Duffy,DEF
+560,0.82,Shane Long,FWD
+561,1.78,Solomon March,MID
+562,0.27,Sonny Perkins,MID
+563,0.9,Steven Alzate,MID
+564,1.8186363636363638,Steven Bergwijn,MID
+565,0.54,Stipe Perica,FWD
+566,1.36,Stuart Armstrong,MID
+567,2.47,Stuart Dallas,DEF
+568,0.46,Stuart McKinstry,MID
+569,1.44,Takumi Minamino,MID
+570,1.12,Tanguy Ndombele,MID
+571,2.19,Tariq Lamptey,DEF
+572,0.93,Tariqe Fosu-Henry,MID
+573,0.37,Taylor Richards,MID
+574,1.85,Teemu Pukki,FWD
+575,0.68,Theo Walcott,MID
+576,1.68,Thiago Alcántara do Nascimento,MID
+577,0.29,Thierry Small,DEF
+578,0.24,Thomas Dickson-Peters,FWD
+579,0.49,Thomas McGill,GK
+580,0.22,Tim Iroegbunam,MID
+581,1.0,Tim Krul,GK
+582,1.97,Timothy Castagne,DEF
+583,1.47,Tino Livramento,DEF
+584,0.43,Tobi Omole,DEF
+585,0.74,Toby Alderweireld,DEF
+586,1.01,Todd Cantwell,MID
+587,1.19,Tom Cleverley,MID
+588,0.66,Tom Davies,MID
+589,0.59,Tom Heaton,GK
+590,3.52,Tomas Soucek,MID
+591,0.39,Tommy Doyle,MID
+592,0.49,Toti António Gomes,DEF
+593,3.35,Trent Alexander-Arnold,DEF
+594,1.0,Troy Deeney,FWD
+595,0.3,Tyler Morton,MID
+596,0.32,Tyler Onyango,MID
+597,1.21,Tyler Roberts,MID
+598,2.208636363636364,Tyrick Mitchell,DEF
+599,1.78,Tyrone Mings,DEF
+600,2.37,Vicente Guaita,GK
+601,1.71,Victor Lindelöf,DEF
+602,0.23,Viljami Sinisalo,GK
+603,0.27,Vincent Angelini,GK
+604,3.188636363636364,Virgil van Dijk,DEF
+605,1.07,Vitalii Mykolenko,DEF
+606,2.56,Vitaly Janelt,MID
+607,2.15,Vladimir Coufal,DEF
+608,0.22,Vontae Daley-Campbell,DEF
+609,0.92,Wayne Hennessey,GK
+610,0.66,Wesley Fofana,DEF
+611,2.28,Wesley Moraes,FWD
+612,2.71,Wilfred Ndidi,MID
+613,2.22,Wilfried Zaha,MID
+614,1.36,Will Hughes,MID
+615,0.66,Will Norris,GK
+616,0.27,William Smallbone,MID
+617,0.34,William Troost-Ekong,DEF
+618,0.48,Willy Boly,DEF
+619,0.26,Willy Caballero,GK
+620,0.57,Winston Reid,DEF
+621,2.528636363636364,Wout Weghorst,FWD
+622,0.84,Xherdan Shaqiri,MID
+623,0.58,Yan Valery,DEF
+624,2.03,Yerry Mina,DEF
+625,0.28,Yerson Mosquera Valdelamar,DEF
+626,2.42,Yoane Wissa,MID
+627,2.76,Youri Tielemans,MID
+628,1.27,Yves Bissouma,MID
+629,0.65,Zack Steffen,GK
+630,2.98,Álvaro Fernández,GK
+631,3.2,Çaglar Söyüncü,DEF
+632,2.77,Aaron Ramsdale,GK
+633,1.12,Ainsley Maitland-Niles,DEF
+634,0.88,Albert Sambi Lokonga,MID
+635,2.79,Alexandre Lacazette,FWD
+636,0.63,Arthur Okonkwo,GK
+637,1.58,Ben White,DEF
+638,0.93,Bernd Leno,GK
+639,2.39,Bukayo Saka,MID
+640,0.41,Charlie Patino,MID
+641,1.34,Cédric Soares,DEF
+642,1.42,Edward Nketiah,FWD
+643,2.15,Emile Smith Rowe,MID
+644,0.71,Folarin Balogun,FWD
+645,3.15,Gabriel Magalhães,DEF
+646,2.32,Gabriel Teodoro Martinelli Silva,MID
+647,1.37,Granit Xhaka,MID
+648,0.83,Héctor Bellerín,DEF
+649,0.63,Karl Hein,GK
+650,3.13,Kieran Tierney,DEF
+651,0.87,Konstantinos Mavropanos,DEF
+652,0.97,Lucas Torreira,MID
+653,1.92,Martin Ødegaard,MID
+654,0.87,Mattéo Guendouzi,MID
+655,0.48,Mika Biereth,FWD
+656,0.95,Mohamed Naser El Sayed Elneny,MID
+657,1.34,Nicolas Pépé,MID
+658,0.62,Nuno Varela Tavares,DEF
+659,0.48,Omari Hutchinson,MID
+660,0.88,Pablo Marí,DEF
+661,2.87,Pierre-Emerick Aubameyang,MID
+662,0.48,Reiss Nelson,MID
+663,1.16,Rob Holding,DEF
+664,0.45,Ryan Alebiosu,DEF
+665,0.93,Rúnar Alex Rúnarsson,GK
+666,0.48,Salah-Eddine Oulad M'hand,MID
+667,0.89,Sead Kolasinac,DEF
+668,0.69,Takehiro Tomiyasu,DEF
+669,1.35,Thomas Partey,MID
+670,0.87,William Saliba,DEF
+671,1.06,Willian Borges Da Silva,MID
+672,0.36,Zach Awe,DEF
+673,0.95,Andreas Christensen,DEF
+674,1.57,Antonio Rüdiger,DEF
+675,1.17,Benjamin Chilwell,DEF
+676,1.9,Callum Hudson-Odoi,MID
+677,1.83,Christian Pulisic,MID
+678,1.67,César Azpilicueta,DEF
+679,1.51,Edouard Mendy,GK
+680,0.61,Emerson Palmieri dos Santos,DEF
+681,0.77,Ethan Ampadu,DEF
+682,2.36,Hakim Ziyech,MID
+683,0.83,Harvey Vale,MID
+684,1.68,Jorge Luiz Frello Filho,MID
+685,1.38,Kai Havertz,MID
+686,1.07,Kepa Arrizabalaga,GK
+687,0.83,Lewis Hall,MID
+688,0.99,Malang Sarr,DEF
+689,1.8225,Marcos Alonso,DEF
+690,0.68,Marcus Bettinelli,GK
+691,1.76,Mason Mount,MID
+692,1.64,Mateo Kovacic,MID
+693,0.98,Michy Batshuayi,FWD
+694,1.46,N'Golo Kanté,MID
+695,0.99,Olivier Giroud,FWD
+696,1.51,Reece James,DEF
+697,0.76,Robert Kenedy Nunes do Nascimento,DEF
+698,2.27,Romelu Lukaku,FWD
+699,1.24,Ross Barkley,MID
+700,1.2,Ruben Loftus-Cheek,MID
+701,0.82,Saúl Ñíguez,MID
+702,0.99,Tammy Abraham,FWD
+703,1.73,Thiago Emiliano da Silva,DEF
+704,1.71,Timo Werner,FWD
+705,0.74,Trevoh Chalobah,DEF
