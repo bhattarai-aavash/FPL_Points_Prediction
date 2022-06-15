@@ -14,21 +14,28 @@
             <th>Player</th>
             <th>Predicted</th>
             <th>Position</th>
+            <th>Team</th>
           </tr>
         </thead>
 
         <tbody class="predictions-body">
-          {% for p, n, po in mylist %}
-          <tr>
+          {% for p, n, po, team in mylist %}
+          
+          <tr class="predict show-predict">
             <td>{{forloop.counter}}.</td>
             <td>{{n}}</td>
             <td>{{p}}</td>
             <td>{{po}}</td>
+            <td>{{team}}</td>
           </tr>
+          
           {% endfor %}
         </tbody>
       </table>
     </section>
+
+    
+    
   </div>
 
   <!-- {% for p,n,po in mylist %}

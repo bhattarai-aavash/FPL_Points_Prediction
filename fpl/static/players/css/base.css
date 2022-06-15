@@ -204,6 +204,11 @@ ul li {
   width: 80%;
   margin: 1rem 0;
 }
+#respond{
+  background-color: var(--gray);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
 
 /* ------------------AFTER LOGIN---------------- */
 .wrapper {

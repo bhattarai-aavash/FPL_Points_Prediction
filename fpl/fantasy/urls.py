@@ -26,6 +26,6 @@ def landing(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',  landing),
+    path('',  landing, name='landing'),
     path('players/', include('players.urls')),
 ]  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

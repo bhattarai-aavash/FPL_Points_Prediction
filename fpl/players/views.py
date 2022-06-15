@@ -1081,7 +1081,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(reverse('home'))
+        return HttpResponseRedirect(reverse('login'))
 
 
 class RegisterView(View):
@@ -1611,11 +1611,13 @@ class PredictionView(View):
         predict = []
         name = []
         position = []
-        for Predict, Name, Position in zip(file.predict, file.name, file.position):
+        team = []
+        for Predict, Name, Position, Team in zip(file.predict, file.name, file.position, file.team):
             predict.append(Predict)
             name.append(Name)
             position.append(Position)
-        mylist = zip(predict, name, position)
+            team.append(Team)
+        mylist = zip(predict, name, position, team)
         context = {
             'team_id': team_id,
             'mylist': mylist,
