@@ -1,7 +1,7 @@
 # Fantasy Premier League with Points Prediction 
 # FPL Points Predictor
 
-Welcome to the FPL Points Predictor, a web app for predicting Fantasy Premier League (FPL) player points. This application uses Python and Django to provide insights into potential player performances, helping FPL managers make informed decisions about their squad.
+Welcome to the FPL Points Predictor, a web app for predicting Fantasy Premier League (FPL) player points. This application uses Python and Django to provide insights into potential player performances, helping FPL managers make informed decisions about their squad. For the implementation of the Points Prediction look at ml folder. To run the web app look at the steps below
 
 ## Getting Started
 
@@ -20,4 +20,14 @@ Ensure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/your-username/fpl-points-predictor.git
-cd fpl-points-predictor
+cd fpl 
+2. **Create a virtual environment (optional but recommended):**
+
+    ```bash
+    python -m venv venv
+    ```
+
+3 **Run manage.py**
+  ```bash
+    python python manage.py runserver
+    ```
