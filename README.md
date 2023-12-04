@@ -1,1 +1,1 @@
-# minor_project
+# Fantasy Premier League with Points Prediction 
